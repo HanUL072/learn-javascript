@@ -51,5 +51,84 @@ console.log('addBuyApples =', addBuyApples) //undefined → 27
 //let 현재_내가_가진_사과의_갯수 = 처음_가진_사과의_갯수 + 추가로_구매한_사과의_갯수
 //console.log('현재_내가_가진_사과의_갯수 = ', 현재_내가_가진_사과의_갯수) // 31
 
+// ----------------------------------------------------------------
 // let 변수 vs. var 변수
+
+// 블록 스코프(block scope)
+// {
+//     var myName 
+//     console.log(1, myName)
+
+//     myName = 'Seong9'
+//     console.log(2, myName)
+// }
+
+
+// myName = 'seong9'
+// console.log(3, myName)
+
+
+// {
+//     var myName
+//     console.log(1, myName)
+
+//     myName = 'yamoo9'
+//     console.log(2, myName)
+// }
+
+// myName = 'y9'
+// console.log(3, myName)
+
+// {
+//     let myName2
+//     console.log(1, myName2)
+
+//     myName2 = 'yamoo9'
+//     console.log(2, myName2)
+// }
+
+// myName2 = 'y9'
+// console.log(3, myName2)
+
+// -----------------------------------------------------------------------------
 // let 변수 vs. const 변수(상수)
+// - 변수 = 시간의 흐름에 따라 값이 변경됨
+// - 상수 = 처음 선언시, 할당된 후 값이 이후 변경되지 않음
+
+
+// -----------------------------------------------------------------------------
+
+//1. `const` 키워드를 사용해 값이 변하지 않는 상수를 선언해봅니다.
+    //1. "하루는 24시간"
+    const day = 24
+    //2. "물의 어는 점은 섭씨 0도"
+    const frezzing = 0
+    //3. "삼각형 내각의 합은 180도"
+    const angles = 180
+    //4. "지구의 중력 가속도는 9.8 m/s²"
+    const gravitational = 9.8
+
+//2. 다음 내용을 코드로 작성해 결과 값을 콘솔 패널에 출력해보세요.
+    //1. `let` 키워드를 사용해 `sum` 변수를 선언하고 값을 `0`으로 설정합니다.
+    // let sum = 0
+    //2. `num1`, `num2` 변수를 선언하고, 각각 `300`, `50`으로 값을 설정합니다.
+    let num1 = 300
+    console.log(1, num1)
+    let num2 = 50
+    console.log(2, num2)
+   // 3. `num1`, `num2`의 합을 `sum` 변수에 할당합니다.
+   let sum = num1 + num2
+   console.log(3, sum)
+//3. 사람 이름, 나이, 오늘의 기온, 장바구니 상품 갯수, 집 주소, 현재 시간,
+//로그인 상태, 피자 가격, 학생 수 등에 걸맞는 변수 이름을 정하고 적절한 값을 설정합니다.
+let name = 'mina'
+console.log(name)
+
+const year = 18
+console.log(year)
+
+let temperature = 25
+console.log(temperature)
+
+let adress = 'Anseong'
+console.log(adress)
