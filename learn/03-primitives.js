@@ -75,3 +75,10 @@ false   // boolean
 undefined
 
 console.log(undefined)
+
+// ----------------------------------------------
+// Null
+// ----------------------------------------------
+
+null
+console.log(null)
