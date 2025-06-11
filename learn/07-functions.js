@@ -165,3 +165,21 @@ function 화면에결과그리기() {
 
 화면에결과그리기()
 
+// 전역변수를 선언만하고 Add commentMore actions
+// 함수 내부에서 정의할 경우에는 
+// return을 사용할 필요 없이 
+// 전역변수의 값이 변할 수 있는데 
+// 이때에도 return이 없으면 
+// 함수는 undefined를 반환하나요?
+
+let y = '전역 변수'
+
+function 함수() {
+  // 전역 변수 변경
+  y = 0
+
+  // 아무런 값을 명시적으로 반환하지 않아요
+  // return undefined
+}
+
+console.log(함수()) // undefined
