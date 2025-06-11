@@ -138,9 +138,55 @@ let lookAndMe = function() { console.log('look at me')}
 // let getStyles = _ => (객체값에중괄호가포함되면문법오류)
 
 // '=> { ' = 함수블록의 시작 // '=> ({ ' = 값을 묶었구나 인식  
-let getStyles = _ => ({
-  'display' : 'flex',
-  'row-gap' : 24
-})
+// let getStyles = _ => ({
+//   'display' : 'flex',
+//   'row-gap' : 24
+// })
 
-console.log(getStyles())
+// console.log(getStyles())
+
+
+// -----------------------------------------------
+// 짤막 실습
+// -----------------------------------------------
+// 1
+// const ten = () => 10
+
+
+// 2
+// const logger = message => '로그 메시지: ' + message
+
+
+// 3
+// let pxToRem = (pxValue) => {
+//   let rem = (pxValue / 16 + 'rem')
+//   return pxToRem
+// }
+
+// const pxToRem = (pxValue) => pxValue / 16 + 'rem' 
+
+
+// 4
+// const percentage = (part, total) => {
+//   return part / total * 100 + '%'
+// }
+
+// const percent = (part, total) => part / total * 100 + '%'
+
+// --------------------------------------------------------
+// 왜 함수를 화살표 함수 표현식으로 사용할 때
+// let이 아닌 const 를 사용했을까?
+// 협업을 할 때 내가 쓴 함수명을 누군가가 객체로 사용했을 수 있음 이러면, 함수로 인식하지 않음
+// let = 변수, const = 상수 이기때문에 이런때를 고려해서 const를 사용
+
+// let thisIsAFunction = () => {
+//   console.log('이것은 함수입니다.')
+// }
+
+const thisIsAFunction = () => {
+  console.log('이것은 함수 입니다.')
+}
+
+thisIsAFunction = {}
+
+thisIsAFunction()
