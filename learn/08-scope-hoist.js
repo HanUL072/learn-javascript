@@ -38,11 +38,11 @@ function 함수(){
 var 변수 선언 호이스트 현상
  --------------------------------------------------------*/
 // var 변수 선언
-console.log(1, 마이네임) // ERROR? or Log? = Log
+// console.log(1, 마이네임) // ERROR? or Log? = Log
 
 var 마이네임 = '세하'
 
-console.log(2, 마이네임)
+// console.log(2, 마이네임)
 
 
 // 변수 선언 호이스트
@@ -62,7 +62,7 @@ console.log(2, 마이네임)
 /* Let 변수, Const 상수 선언 호이스트 현상이 일어날까?    아니오!                           */
 /*-------------------------------------------------------------------*/
 
-console.log(1, 마이네임) // ERROR? or Log? = ERROR
+// console.log(1, 마이네임) // ERROR? or Log? = ERROR
 
 // let 변수 선언
 //let 마이네임 = '세하'
@@ -70,5 +70,82 @@ console.log(1, 마이네임) // ERROR? or Log? = ERROR
 // const 상수 선언
 // const 마이네임 = '세하'
 
-console.log(2, 마이네임)
+// console.log(2, 마이네임)
 
+
+
+// 장점 : 호이스트 현상을 잘 이용하면 코드의 실행 흐름을 깔끔하게 유추할 수 있다.
+
+// function 코드가 길어질 경우 흐름(뭐가 먼저 실행)을 읽기 어려운데
+// 코드를 더 읽기 쉽게 만들어줌 (개발자 관점)
+// run()
+// goToHome()
+// eatLunch()
+// andStudy()
+
+
+// function run() {
+
+// }
+
+// function goToHome() {
+
+// }
+
+// function eatLunch() {
+
+// }
+
+// function andStudy(){
+
+// }
+
+
+
+
+// 코드 흐름 먼저 작성
+// startGame()
+// movePlayer()
+// endGame()
+
+
+// ------------------------------------------------------------------
+// 함수를 만드는 2가지 방법
+// ------------------------------------------------------------------
+// 1. 함수 선언 (Function Declearation)
+// 2. 함수 표현식 (Function Expression)
+// ------------------------------------------------------------------
+
+// 함수 선언, 함수 표현식 그리고 호이스트 현상 비교
+
+보다('공무원님')
+look('선생님')
+// 보다('형사님')
+
+// 함수 선언
+function look(who) {
+  console.log(who + '를(을) 보다')
+}
+
+
+// 함수 (표현)식
+// 자바스크립트는 함수를 값(Value) 으로 취급 **
+// 변수 = 값(할당)
+// 변수 = 함수 
+// let 보다 = 'see' // String
+// let 보다 = 1001 // Number
+// let 보다 = true // Bloolean
+// let 변수 = 함수
+let 보다 = function (누구) {
+  console.log(누구 + '를(을) 보다')
+}
+
+// 함수 작성법은 2개 비교Add commentMore actions
+// 1. 함수 선언 (function 키워드로 시작, 호이스트 현상 ✅)
+// 2. 함수 표현식 (변수에 함수 값을 할당, JS는 함수를 값으로 취급 / 호이스트 현상 ❌)
+
+// let myFunction = function () {
+//   console.log('this is a mine function name')
+// }
+
+// myFunction()
