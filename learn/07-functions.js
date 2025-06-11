@@ -58,7 +58,7 @@ drawWater()
 let year = 4027
 
 // 함수 선언
-function writeDiary(year, month, date, location){
+function writeDiary(year, month, date, location) /* = 기본값 undefined */ {
     // 함수이름 옆 () 안에 선언된 변수를 특별히 매개변수라 부른다.
     // console.log(year, month, date, location)
     
@@ -85,6 +85,83 @@ function writeDiary(year, month, date, location){
 
 // 함수 호출(실행)
 // 일기쓰기 (연도, 월, 일 장소)
-writeDiary(2025, 6, 10, 'N 타워')
-writeDiary(2025, 7, 1, '부산 광안리 해수욕장')
-writeDiary(2025, 10, 30, '원주 디자인 뮤지엄')
+// 인수(arguments)
+//writeDiary(2025, 6, 10, 'N 타워')
+//writeDiary(2025, 7, 1, '부산 광안리 해수욕장')
+//writeDiary(2025, 10, 30, '원주 디자인 뮤지엄')
+
+// 변수(variables)에 아무런 값이 할당되지 않을 경우 기본 값을 'undefined' 다
+//let date = '12월'
+//console.log(date) //undefined
+
+// 매개변수(parameters)에 아무런 값이 할당되지 않을 경우 기본 값을 'undefined' 다
+// writeDiary()
+
+
+// ------------------------------------------------------------------
+// 함수의 반환문(return)
+// ------------------------------------------------------------------
+
+function 더하기(숫자1, 숫자2){
+  // 브라우저 콘솔 패널에 숫자1 + 숫자2 계산된 값이 기록된다.
+  console.log('콘솔 패널에 출력된 계산 결과 =', 숫자1 + 숫자2)
+  // 함수에서 처리(계산)된 값을 반환하려면 return 키워드가 필요하다.
+  return 숫자1 + 숫자2
+}
+
+// 함수(기능)가 실행되어 값을 반환한다면 그 값을 변수에 기억하려 한다.
+//let 결과값 = 더하기(10, 9) //19
+//console.log('결과값 =', 결과값)
+
+//let 결과값2 = 더하기(결과값, 결과값)
+//console.log(결과값2) //???
+
+// 함수는 실행될 수 있다.
+// 함수는 실행되면 결과 값을 반환한다.
+// 처리(계산)된 값을 반환할 때 return 키워드를 사용한다.
+
+function 빼기(숫자1, 숫자2){
+  // 숫자1 = 10
+  // 숫자2 = 4
+  // 처리(계산)
+  // 지역 변수 선언 계산된 값 할당
+  let 결과값 = 숫자1 - 숫자2 // 10 - 4 = 6
+
+  // 계산된 결과값을 반환
+  return 결과값
+}
+
+// let 계산된값 = 빼기(10, 4)
+// console.log('계산된값 =', 계산된값)
+
+
+// console.log 를 통해 할당과 출력을 동시에 할 수 있음
+// console.log() 로 출력된 값은 output 은 맞으나, 값은 갖고있지 않음
+console.log(빼기(10, 4))
+console.log(빼기(24, 6))
+console.log(빼기(100, 4))
+console.log(빼기(7, 20))
+console.log(빼기(100, -24))
+console.log(빼기(-9, 9))
+console.log(빼기(10_000, 50))
+
+
+// --------------------------------------------------------
+// console.log() vs 화면의 return
+// ---------------------------------------------------------
+
+function 곱하기(숫자1, 숫자2) {
+  let 결과값 = 숫자1 * 숫자2 //계산된 값
+  // console.log(결과값)
+  return 결과값
+}
+
+// 함수가 계산된 값을 반환한다는 건
+function 화면에결과그리기() {
+  const 화면에그릴숫자값 = 곱하기(10, 20) // undefined
+  document.write(화면에그릴숫자값) // undefined -> 'undefined'
+
+}
+
+화면에결과그리기()
+
