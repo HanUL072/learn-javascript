@@ -128,23 +128,23 @@ h1Camel.getFontSize = function() {
 console.log(h1Camel.getFontSize())
 
 macbookPro.getOS = function() {
-  return macbookPro.macOS  //'2.65rem'
+  return macbookPro.macOS  
 }
 
-console.log(macbookPro.getOS()) //'Sequoia 15.4'
-console.log(macbookPro['getOS']()) //'Sequoia 15.4'
+console.log(macbookPro.getOS()) 
+console.log(macbookPro['getOS']()) 
 
 // --------------실습----------------
-const 과일 = {
-  '사과': 'apple',
-  '바나나': 'banana',
+const fruit = {
+  apple: '사과',
+  banana: '바나나',
 }
 
-과일.getAPPLE = function() {
-  return 과일.사과
+fruit.getAPPLE = function() {
+  return fruit.apple
 }
 
-console.log(과일.getAPPLE())
+console.log(fruit.getAPPLE())
 // -----------------------------------
 
 
@@ -158,3 +158,72 @@ macbookPro.playMusic = function(songTitle) {
 
 // 메서드 사용 (함수처럼 호출, 객체를 통해 메서드에 접근)
 console.log(macbookPro.playMusic('첫 눈처럼 너에게 가겠다.'))
+
+
+
+// ---------------------------------------------------------------------
+// 함수의 타입은?
+// JavaScript 함수는 객체이다.
+// -----------------------------------------------------------------------
+
+function likeLion() {
+  console.log('우리는 멋사 14기!')  
+}
+
+likeLion.order = 14
+
+console.log(likeLion.order)
+
+delete likeLion.order
+
+console.log(likeLion.order)
+
+
+// // "함수는 값이다"
+// - 함수는 값이므로 함수에 인수로 전달 가능하다. (일급 객체, 일급 함수)
+{
+  
+  greeting(sayHello, '🌈 자바스크립트') // '안녕! 🌈 자바스크립트'
+  
+  function sayHello() {
+    return '안녕! '
+  }
+  
+  function greeting(helloMessage, name) {
+    // const hellMessage = sayHello = function () {...}
+    // sayHello: 입력값, helloMessage: 실행값
+  
+    console.log(helloMessage() + name)
+  }
+}
+
+
+// - 함수는 값이므로 함수가 값으로 반환할 수 있다. (고차 함수)
+{
+  const greeting = sayHello()
+  greeting('🌈 자바스크립트') // '안녕! 🌈 자바스크립트'
+
+  function sayHello() {
+    return (name) => {
+      console.log('안녕! ' + name)
+    }
+  }
+
+}
+
+{
+  const galaxyNoteBook = {
+    deviceName: '갤럭시 노트북',
+    getDeviceName: function() {
+      return galaxyNoteBook.deviceName
+    }
+  }
+
+  // console.log(galaxyNoteBook.getDeviceName) 이렇게 하면 함수가 나오고 
+  // 함수(컴퓨터 메모리 상에 기억: 주소) 참조
+  console.log(galaxyNoteBook.getDeviceName) 
+
+  // console.log(galaxyNoteBook.getDeviceName()) 이렇게 했을때 value가 나오는데 왜 그런건가요?
+  // 함수(컴퓨터 메모리 상에 기억: 주소) 실행 (소괄호()는 함수이름이 실행 연산자를 만나면 함수가 실행 => 값 반환)
+  console.log(galaxyNoteBook.getDeviceName()) 
+}
