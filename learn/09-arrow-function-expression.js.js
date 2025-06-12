@@ -183,10 +183,28 @@ let lookAndMe = function() { console.log('look at me')}
 //   console.log('이것은 함수입니다.')
 // }
 
-const thisIsAFunction = () => {
-  console.log('이것은 함수 입니다.')
+// const thisIsAFunction = () => {
+//   console.log('이것은 함수 입니다.')
+// }
+
+
+// let 대신 const 사용 - 추가 설명
+// thisIsAFunction = {}
+
+// thisIsAFunction()
+
+// const를 사용해야 하는 경우
+// 값 또는 데이터 타입이 변경되어서는 안될 때
+
+// 예) 게임 레벨(level)은 게임 진행에 따라 값이 변경되어야 하므로 변수여야 합니다.
+let 게임_레벨 = 1
+
+// 예) 게임 캐릭터(character)는 게임 진행과 상관 없이 처음 설정한 그대로 유지되어야 합니다.
+const 게임_캐릭터 = {
+  '이름': '네반(Neamhain)',
+  '소개': '신의 힘을 다루는 정체불명의 성기사',
+  '사용 무기': '홀리파이크',
+  '전투 특성': '마법, 묵직함, 반격',
 }
 
-thisIsAFunction = {}
-
-thisIsAFunction()
+게임_캐릭터 = null // ERROR
