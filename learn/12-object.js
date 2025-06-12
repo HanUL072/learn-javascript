@@ -107,8 +107,54 @@ h1Kebab['font-style'] = 'oblique'
 console.log(h1Kebab['font-weight']) // 700
 console.log(h1Kebab['font-style']) // 'oblique'
 
-console.log(h1Kebab)
+console.log(h1Kebab) 
 
 // 객체 속성 삭제(Delete)
 delete h1Kebab['font-style']
 console.log(h1Kebab)
+
+
+
+// 객체의 속성(Object's Properties)
+// h1Camel.fontSize
+// h1Camel.fontWeight
+
+// 객체의 메서드(Object's Methods : 객체의 속성 중 함수(동사)형태의 것을 특별히 메서드라고 부른다.)
+// ex.) - getFontSize
+h1Camel.getFontSize = function() {
+  return h1Camel.fontSize 
+}
+
+console.log(h1Camel.getFontSize())
+
+macbookPro.getOS = function() {
+  return macbookPro.macOS  //'2.65rem'
+}
+
+console.log(macbookPro.getOS()) //'Sequoia 15.4'
+console.log(macbookPro['getOS']()) //'Sequoia 15.4'
+
+// --------------실습----------------
+const 과일 = {
+  '사과': 'apple',
+  '바나나': 'banana',
+}
+
+과일.getAPPLE = function() {
+  return 과일.사과
+}
+
+console.log(과일.getAPPLE())
+// -----------------------------------
+
+
+// 
+// 
+// 
+// 메서드 정의 (매개변수 포함)
+macbookPro.playMusic = function(songTitle) {
+  return '"' + songTitle + '" 재생을 시작합니다. 🎵'
+}
+
+// 메서드 사용 (함수처럼 호출, 객체를 통해 메서드에 접근)
+console.log(macbookPro.playMusic('첫 눈처럼 너에게 가겠다.'))
