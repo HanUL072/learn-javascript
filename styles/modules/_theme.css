@@ -134,5 +134,8 @@
   --pink-900: hsl(350, 45%, 10%);
   --pink-950: hsl(350, 45%, 5%);
 
+  --fg-color: light-dark(var(--gray-950), var(--yellow-500));
+  --bg-color: light-dark(var(--yellow-500), var(--gray-950));
+
   color-scheme: light dark;
 }

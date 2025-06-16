@@ -44,7 +44,7 @@
         <!-- <script src="./script/learn/20-undefined-vs-null.js"></script> -->
         <!-- <script src="./script/learn/21-browser-object-model.js"></script> -->
         <!-- <script type="module" src="./script/learn/22-document-object-model.js"></script> -->
-        <script type="module" src="./script/learn/23-change-class-properties.js"></script>
+        <!-- <script type="module" src="./script/learn/23-change-class-properties.js"></script> -->
     </head>
     <body>
 
@@ -52,7 +52,39 @@
         <h1 lang="en">JavaScript</h1>
         
 
-        <div id="app">
+        <button type="button" class="clickable">클릭 가능한 요소</button>
+
+        <script>
+          const clickable_button = document.querySelector('.clickable')
+           const body = document.body
+           
+           clickable_button.addEventListener('click', () => {
+               // 조건 확인 ('is-active' 클래스 이름을 가지는 가?)
+               if (body.classList.contains('is-active')) {
+               // 클래스 이름 추가 ----------------------------------  
+               // body 요소에 is-active 클래스 이름 추가 
+               body.classList.remove('is-active')
+               // .clickable_button 요소에 is-active 클래스 이름 추가
+               clickable_button.classList.remove('is-active')
+             }  else {
+              // 클래스 이름 추가 ---------------------------------
+              body.classList.add('is-active')
+              // .clickable_button 요소에 is-active 클래스 이름 추가
+               clickable_button.classList.add('is-active')
+             }
+           })
+
+          // console.log(clickable_button)
+        //   clickable_button.addEventListener(
+        //     'click'/* event type (string)*/, 
+        //     // function() {} /* event listener (function) */
+        //     () => {
+        //       console.log('clicked clickable button')
+        //     }
+        //     )
+        </script>
+
+        <!-- <div id="app">
             <ul lang="en-US" id="내맘대로">
                 <li class="item">
                     <a href="">JavaScript</a>
@@ -84,25 +116,25 @@
              <input type="email" id="useremail" name="email" placeholder="user@company.io" />
            </div>
            <button type="submit">보내기</button>
-        </form>
+        </form> -->
 
         <!-- 실습 -->
-       <div id="demo">
+       <!-- <div id="demo">
             <p class="add">
-    	    <!-- 단락에 "text-primary" 클래스 이름을 추가해 주세요! -->
-            </p>
-            
-            <!-- <script>
+    	   
+          
+                  </p>
+         <script>
                 const element = document.getElementById('demo')
                 .querySelector('.add')
 
                 element.classList.add('text-primary')
                 console.log(element.classList.value)
                 console.log(element.classList.length)
-            </script> -->
+            </script> 
 
             <p class="remove">
-            	<!-- 단락에서 "remove" 클래스 이름을 제거해 주세요! -->
+            	
             </p>
 
             <script>
@@ -116,7 +148,7 @@
             </script>
             
             <p class="contains1">
-            	<!-- 단락은 "text-primary" 클래스 이름을 가지고 있나요? -->
+            	
             </p>
 
             <script>
@@ -133,7 +165,7 @@
             </script>
             
             <p class="contains2 text-primary">
-            	<!-- 단락은 "text-primary" 클래스 이름을 가지고 있나요? -->
+            	
             </p>
 
             <script>
@@ -144,8 +176,7 @@
             </script>
             
             <p class="toggle">
-              <!-- 단락은 "text-primary" 이름을 가지고 있나요?
-              있다면 삭제하고, 없다면 추가해 주세요. -->
+            
             </p> 
 
             <script>
@@ -164,7 +195,7 @@
                    console.log(toggleElement.classList.value)
                  }
             </script>
-       </div>
+       </div> -->
         
     </body>
 </html>
