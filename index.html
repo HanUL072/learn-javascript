@@ -46,6 +46,12 @@
         <!-- <script type="module" src="./script/learn/22-document-object-model.js"></script> -->
         <!-- <script type="module" src="./script/learn/23-change-class-properties.js"></script> -->
         <script type="module" src="./script/learn/24-event-listening.js"></script>
+        <script>
+            // 이벤트 핸들러(event handler)
+           function handleToggle() {
+            console.log('toggle triggered')
+           }
+        </script>
     </head>
     <body>
 
@@ -53,7 +59,16 @@
         <h1 lang="en">JavaScript</h1>
         
 
+        <!-- <button type="button" onclick="alert('toggle triggered')">레거시 이벤트를 사용하는 요소</button> -->
+        <button type="button" onclick="handleToggle()">레거시 이벤트를 사용하는 요소</button>
+        
+        
         <button type="button" class="clickable">클릭 가능한 요소</button>
+
+
+        <button type="button" class="test-event">실습 버튼 요소</button>
+
+        <a href="#">click</a>
 
          <!-- <span tabindex="0" class="clickable">클릭 가능한 요소</span> -->
 
@@ -170,5 +185,43 @@
             </script>
        </div> -->
         
+       <script>
+        const button = document.querySelector('button')
+
+        function alertLog(e) {
+          console.log('clicked button')
+          button.classList.toggle('clicked')
+        
+          // 명시적 반환
+          // return { name: '나는 반환값이다.' }
+          return () => {
+            console.log('나는 함수가 반환한 함수이다!')
+          }
+        
+          // 암묵적으로 반환
+          // return undefined
+        }
+        
+        // alertLog
+        const result = alertLog()
+        console.log(result) // undefined
+        
+        
+        // 함수 이름만 참조
+        // button.addEventListener('click', alertLog)
+        
+        // 함수 이름으로 호출(실행)
+        // 이벤트 연결 (binding events)
+        button.addEventListener('click', alertLog())
+
+
+        document.querySelector('a').addEventListener('click', alertLog)
+
+
+        // 1. 요소에 클릭 이벤트 리스너를 작성하세요. 요소가 클릭될 때마다 콘솔 패널에 메시지가 출력되도록 합니다.
+        // 2. 개발 도구에서 리스너의 존재를 확인해봅니다.
+        // 3. 요소를 클릭하면 클래스 이름이 전환되도록 설정해봅니다.
+        // 4. 레거시 이벤트 모델로도 구현해봅니다.
+       </script>
     </body>
 </html>
