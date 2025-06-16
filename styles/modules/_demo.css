@@ -1,4 +1,7 @@
 body {
+  --bg-color: var(--yellow-400);
+
+
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -21,7 +24,7 @@ h1 {
   li {
     padding: 4px;
 
-    &.active {
+    &.charator-is-active {
       font-weight: 900;
       color: var(--yellow-800);
     }
