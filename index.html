@@ -45,183 +45,19 @@
         <!-- <script src="./script/learn/21-browser-object-model.js"></script> -->
         <!-- <script type="module" src="./script/learn/22-document-object-model.js"></script> -->
         <!-- <script type="module" src="./script/learn/23-change-class-properties.js"></script> -->
-        <script type="module" src="./script/learn/24-event-listening.js"></script>
-        <script>
-            // 이벤트 핸들러(event handler)
-           function handleToggle() {
-            console.log('toggle triggered')
-           }
-        </script>
+        <!-- <script type="module" src="./script/learn/24-event-listening.js"></script> -->
+        <script type="module" src="./script/learn/25-callbacks.js"></script>
+        
     </head>
     <body>
 
 
         <h1 lang="en">JavaScript</h1>
-        
 
-        <!-- <button type="button" onclick="alert('toggle triggered')">레거시 이벤트를 사용하는 요소</button> -->
-        <button type="button" onclick="handleToggle()">레거시 이벤트를 사용하는 요소</button>
-        
-        
+
         <button type="button" class="clickable">클릭 가능한 요소</button>
-
-
-        <button type="button" class="test-event">실습 버튼 요소</button>
-
-        <a href="#">click</a>
-
-         <!-- <span tabindex="0" class="clickable">클릭 가능한 요소</span> -->
-
-        <!-- <div id="app">
-            <ul lang="en-US" id="내맘대로">
-                <li class="item">
-                    <a href="">JavaScript</a>
-                </li>
-                <li class="item">
-                    <a href="">HTML</a>
-                </li>
-                <li class="item">
-                    <a href="">CSS</a>
-                </li>
-            </ul>
-        </div>
-
-        <ol class="musicians">
-           <li>드렁큰 타이커</li>
-           <li>다이내믹 듀오</li>
-           <li>소울 딜리버리</li>
-        </ol>
-
-        <ul id="exorcist-characters">
-          <li class="character yo-han" data-type="hero">박요한</li>
-          <li class="character master-choi" data-type="master">최강림</li>
-          <li class="character villain-ghost" data-type="villain">악령</li>
-        </ul>
         
-        <form>
-           <div>
-             <label for="useremail">이메일</label>
-             <input type="email" id="useremail" name="email" placeholder="user@company.io" />
-           </div>
-           <button type="submit">보내기</button>
-        </form> -->
-
-        <!-- 실습 -->
-       <!-- <div id="demo">
-            <p class="add">
-    	   
-          
-                  </p>
-         <script>
-                const element = document.getElementById('demo')
-                .querySelector('.add')
-
-                element.classList.add('text-primary')
-                console.log(element.classList.value)
-                console.log(element.classList.length)
-            </script> 
-
-            <p class="remove">
-            	
-            </p>
-
-            <script>
-                {const demo = document.getElementById('demo')
-                 const element = demo.querySelector('.remove')
-         
-
-                console.log(element.classList.value) // 1
-                element.classList.remove('remove')
-                console.log(element.classList.length)} //0
-            </script>
-            
-            <p class="contains1">
-            	
-            </p>
-
-            <script>
-                {
-                const result = document.querySelector('#demo .contains1')
-                  .classList.contains('text-primary')
-                
-                if (result) {
-                  console.log('.contains1 요소는 text-primary 클래스 이름을 가지고 있습니다.')
-                } else {
-                  console.log('.contains1 요소는 text-primary 클래스 이름을 가지고 있지 않습니다.')
-                    }
-                }
-            </script>
-            
-            <p class="contains2 text-primary">
-            	
-            </p>
-
-            <script>
-                {
-                 const element = document.querySelector('.contains2')
-                 console.log(element.classList.contains('text-primary'))
-                 }
-            </script>
-            
-            <p class="toggle">
-            
-            </p> 
-
-            <script>
-                {
-                   const toggleElement = document.querySelector('#demo .toggle')
-                   console.log(toggleElement.classList.value)
-
-                   toggleElement.classList.toggle('text-primary')
-                   
-                   if (toggleElement.classList.contains('text-primary')) {
-                     toggleElement.classList.remove('text-primary')
-                   } else {
-                     toggleElement.classList.add('text-primary')
-                   }
-                   
-                   console.log(toggleElement.classList.value)
-                 }
-            </script>
-       </div> -->
+  
         
-       <script>
-        const button = document.querySelector('button')
-
-        function alertLog(e) {
-          console.log('clicked button')
-          button.classList.toggle('clicked')
-        
-          // 명시적 반환
-          // return { name: '나는 반환값이다.' }
-          return () => {
-            console.log('나는 함수가 반환한 함수이다!')
-          }
-        
-          // 암묵적으로 반환
-          // return undefined
-        }
-        
-        // alertLog
-        const result = alertLog()
-        console.log(result) // undefined
-        
-        
-        // 함수 이름만 참조
-        // button.addEventListener('click', alertLog)
-        
-        // 함수 이름으로 호출(실행)
-        // 이벤트 연결 (binding events)
-        button.addEventListener('click', alertLog())
-
-
-        document.querySelector('a').addEventListener('click', alertLog)
-
-
-        // 1. 요소에 클릭 이벤트 리스너를 작성하세요. 요소가 클릭될 때마다 콘솔 패널에 메시지가 출력되도록 합니다.
-        // 2. 개발 도구에서 리스너의 존재를 확인해봅니다.
-        // 3. 요소를 클릭하면 클래스 이름이 전환되도록 설정해봅니다.
-        // 4. 레거시 이벤트 모델로도 구현해봅니다.
-       </script>
     </body>
 </html>
