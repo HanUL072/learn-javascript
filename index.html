@@ -45,6 +45,7 @@
         <!-- <script src="./script/learn/21-browser-object-model.js"></script> -->
         <!-- <script type="module" src="./script/learn/22-document-object-model.js"></script> -->
         <!-- <script type="module" src="./script/learn/23-change-class-properties.js"></script> -->
+        <script type="module" src="./script/learn/24-event-listening.js"></script>
     </head>
     <body>
 
@@ -54,35 +55,7 @@
 
         <button type="button" class="clickable">클릭 가능한 요소</button>
 
-        <script>
-          const clickable_button = document.querySelector('.clickable')
-           const body = document.body
-           
-           clickable_button.addEventListener('click', () => {
-               // 조건 확인 ('is-active' 클래스 이름을 가지는 가?)
-               if (body.classList.contains('is-active')) {
-               // 클래스 이름 추가 ----------------------------------  
-               // body 요소에 is-active 클래스 이름 추가 
-               body.classList.remove('is-active')
-               // .clickable_button 요소에 is-active 클래스 이름 추가
-               clickable_button.classList.remove('is-active')
-             }  else {
-              // 클래스 이름 추가 ---------------------------------
-              body.classList.add('is-active')
-              // .clickable_button 요소에 is-active 클래스 이름 추가
-               clickable_button.classList.add('is-active')
-             }
-           })
-
-          // console.log(clickable_button)
-        //   clickable_button.addEventListener(
-        //     'click'/* event type (string)*/, 
-        //     // function() {} /* event listener (function) */
-        //     () => {
-        //       console.log('clicked clickable button')
-        //     }
-        //     )
-        </script>
+         <!-- <span tabindex="0" class="clickable">클릭 가능한 요소</span> -->
 
         <!-- <div id="app">
             <ul lang="en-US" id="내맘대로">
