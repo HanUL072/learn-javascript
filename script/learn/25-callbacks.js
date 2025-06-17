@@ -14,6 +14,18 @@ const handleButtonToggleClass = () => {
 
 // 동기(sync) vs 비동기(async)
 
+// 동기 방식은 코드 실행 완료될 때까지 다음 코드를 차단(블로킹)
+// 비동기 방식은 바로 실행되지 않고(다음 코드를 차단하지 않고) 나중에 코드가 호출(콜백)
+
+
+// 동기(sync) 실행 (블로킹: 코드 차단)Add commentMore actions
+handleBodyToggleClass() // 1 // 5s
+handleBodyToggleClass() // 2 // 5s
+handleBodyToggleClass() // 3 // 5s
+handleBodyToggleClass() // 4 // 5s
+handleBodyToggleClass() // 5 // 5s (25s)
+
+
 // 동기(sync) 실행
 handleBodyToggleClass() // 1
 handleBodyToggleClass() // 2
