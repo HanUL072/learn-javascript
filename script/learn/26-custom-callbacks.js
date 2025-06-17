@@ -39,16 +39,27 @@ const handleInactive = () => {
   button5.classList.remove('is-active')
 }
 
-button1.addEventListener('mouseenter', handleActive)
-button1.addEventListener('mouseleave', handleInactive)
-button2.addEventListener('mouseenter', handleActive)
-button2.addEventListener('mouseleave', handleInactive)
-button3.addEventListener('mouseenter', handleActive)
-button3.addEventListener('mouseleave', handleInactive)
-button4.addEventListener('mouseenter', handleActive)
-button4.addEventListener('mouseleave', handleInactive)
-button5.addEventListener('mouseenter', handleActive)
-button5.addEventListener('mouseleave', handleInactive)
+// button1.addEventListener('mouseenter', handleActive)
+// button1.addEventListener('mouseleave', handleInactive)
+// button2.addEventListener('mouseenter', handleActive)
+// button2.addEventListener('mouseleave', handleInactive)
+// button3.addEventListener('mouseenter', handleActive)
+// button3.addEventListener('mouseleave', handleInactive)
+// button4.addEventListener('mouseenter', handleActive)
+// button4.addEventListener('mouseleave', handleInactive)
+// button5.addEventListener('mouseenter', handleActive)
+// button5.addEventListener('mouseleave', handleInactive)
+
+mouseenter(button1, handleActive)
+mouseleave(button1, handleInactive)
+mouseenter(button2, handleActive)
+mouseleave(button2, handleInactive)
+mouseenter(button3, handleActive)
+mouseleave(button3, handleInactive)
+mouseenter(button4, handleActive)
+mouseleave(button4, handleInactive)
+mouseenter(button5, handleActive)
+mouseleave(button5, handleInactive)
 
 
 
