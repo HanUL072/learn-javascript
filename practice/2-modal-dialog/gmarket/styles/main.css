@@ -5,10 +5,20 @@
 }
 
 .dialog {
+  /* .dialog-is-hidden & {
+    z-index: -1;
+    opacity: 0;
+  } */
+
+  &.dialog-close {
+    z-index: -1;
+    opacity: 0;
+  }
+
   position: fixed;
   bottom: 0;
   left: 20%;
-  /* inline-size: 360px; 버튼이 줄바꿈되길래 수정 */
+  /* inline-size: 360px; 줄바꿈 발생*/
   block-size: 400px;
   margin: 0;
   border-radius: 16px 16px 0px 0px;
