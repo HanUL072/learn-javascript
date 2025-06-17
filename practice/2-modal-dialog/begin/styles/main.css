@@ -8,5 +8,6 @@
 
 @import './components/_button.css' layer(components);
 @import './components/_modal-dialog.css' layer(components);
+@import './components/_modal-dialog2.css' layer(components);
 
 @import './_demo.css';
