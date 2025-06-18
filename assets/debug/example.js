@@ -1,9 +1,9 @@
-// const button = document.querySelector('.button')
-// // console.log(button)
+const button = document.querySelector('.button')
+// console.log(button)
 
-// button.addEventListener('click', () => {
-//   console.log('버튼 클릭!')
-// })
+button.addEventListener('click', () => {
+  console.log('버튼 클릭!')
+})
 
 // let condition = true
 
@@ -15,11 +15,11 @@
 
 
 // ----------------------
-let link
+// let link
 
-link = document.querySelector('.link')
-console.log(link)
+// link = document.querySelector('.link')
+// console.log(link)
 
-link.addEventListener('click', () => {
-  console.log('버튼 클릭!')
-})
+// link.addEventListener('click', () => {
+//   console.log('버튼 클릭!')
+// })
