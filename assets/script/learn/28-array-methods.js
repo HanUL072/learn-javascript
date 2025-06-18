@@ -168,3 +168,74 @@ console.log(멋사14기_수강생)
 // 제거는 한번씩 밖에 안됌
 // 맨 앞에 제거: .shift()
 // 맨 뒤에 제거: .pop()
+
+
+  const numbers = [9, 10, 3, 4, 7, 8]
+  console.log(numbers) // [9, 10, 3, 4, 7, 8]
+
+
+// 맨 앞 제거 -> 추가
+// numbers.shift()
+// numbers.shift() // [3, 4, 7, 8]
+numbers.splice(0, 2)
+// numbers.unshift(1, 2)
+numbers.splice(0, 0, 1, 2)
+
+// 맨 뒤 제거 -> 추가
+// numbers.pop()
+// numbers.pop()
+numbers.splice(numbers.length -2, 2) // [1, 2, 3, 4]
+// numbers.push(5, 6)
+numbers.splice(numbers.length, 0, 5, 6)
+
+
+// 추가 및 제거 방법을 사용해 아래 결과를 만들어 보세요.
+console.log(numbers) // [1, 2, 3, 4, 5, 6]
+
+// ----------------------------------------------------------------------------
+// 배열 중간 위치 어딘가에 새 항목 추가 또는 삭제
+// 배열의 .splice() 메서드 : 추가/삭제/교체
+
+// 중간에 포함된 항목을 삭제
+// 배열.splice(시작 인덱스, 삭제할 갯수)
+// console.log(numbers) // [1, 2, 3, 4, 5, 6]
+// const removedItems = numbers.splice(2,2)
+// console.log(removedItems) // [3, 4]
+// console.log(numbers) // [1, 2, 5, 6]
+
+// 중간에 새 항목 추가
+console.log(numbers) // [1, 2, 3, 4, 5, 6]
+console.log(numbers.splice(3, 0, 100, 101, 102)) // []
+console.log(numbers) // [1, 2, 3, 100, 101, 102, 4, 5, 6]
+
+// 중간에 포함된 항목을 삭제하고, 새 항목을 추가
+
+
+// 배열 변형 메서드: unshift(), shift(), push(), pop(), splice()
+// 배열 보존 메서드: 새로운 배열 반환. 기존의 배열을 변형하지 않음. slice()
+
+// ------------------------------------------------------------------
+// 배열의 원소 잘라(slice) 새 배열 반환
+// .slice(startIndex, endIndex) -> 시작 인덱스부터 끝 이전 인덱스까지 포함한 새 배열 반환
+// 배열 복제
+// .slice() -> 통째로 모두 잘라서 새 배열 반환
+
+
+//------------------------------------------------------------------------
+
+// 배열 중간에 splice 통해서 삭제할 땐, .splice(2,2)와 같이 삭제할 갯수까지만 써도 되는데, 
+// 추가할 땐 세 개를 다 쓰는데 혹시 삭제할 때는 두 개만 써도 되는 이유가 뭔가요? 
+
+// (시작위치, 삭제 개수, 추가할 것)에서 추가할 것이 null로 인식되는 건가요? 
+// 추가할 때는 무조건 매서드 내에 3개 이상의 항목을 입력해야 하나요?
+
+// A: YES, 필수 변수이기 때문에 넣어야 함
+
+// 배열 객체의 splice() 메서드 구문 (참고: https://mzl.la/3TsizeR)
+// array.splice(start[. deleteCount[, item1[, item2[, ...]]]])
+
+// array.splice(start)
+// array.splice(start, deleteCount)
+// array.splice(start, deleteCount, newItem, newItem2, ...)
+
+
