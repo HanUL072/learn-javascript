@@ -25,6 +25,38 @@ console.log('비교_연산자_인덱스 =', 비교_연산자_인덱스)
 
 
 
+// indexOf() 메서드의 결과 값을 불리언 값으로 변경하려면?
+
+const fruitBasket = ['패션후르츠', '애플망고', '워터멜론', '오렌지']
+
+// indexOf() 메서드가 반환한 값이 -1 보다 크다면? 그 값은 true 이다.
+// console.log(fruitBasket.indexOf('패션') > -1) // false
+// console.log(fruitBasket.indexOf('패션후르츠') > -1) // true
+// console.log(fruitBasket.indexOf('애플망고') > -1) // true
+// console.log(fruitBasket.indexOf('워터멜론') > -1) // true
+// console.log(fruitBasket.indexOf('오렌지') > -1) // true
+// 배열.indexOf(값): 불리언
+
+// 구문이 긴데? 재사용 가능한 함수로 작성해볼까요?
+// 배열.indexOf(값): 불리언
+
+// 1. 일반함수 예시
+// function hasItem(array, value) {
+//    return array.indexOf(value) > -1
+// }
+
+// 2. 화살표 함수 예시
+// const hasItem = (array, value) => {
+//    return array.indexOf(value) > -1
+// }
+
+// 3. 화살표 함수(축약) 예시
+const hasItem = (array, value) => array.indexOf(value) > -1
+
+console.log(hasItem(fruitBasket, '패션')) // 반환값: false
+console.log(hasItem(fruitBasket, '오렌지')) // 반환값: true
+
+
 
 
 
