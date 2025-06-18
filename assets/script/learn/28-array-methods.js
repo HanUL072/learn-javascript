@@ -57,6 +57,28 @@ console.log(hasItem(fruitBasket, '패션')) // 반환값: false
 console.log(hasItem(fruitBasket, '오렌지')) // 반환값: true
 
 
+// indexOf() 매서드 대신 includes() 매서드 활용
+console.log(fruitBasket.includes('오렌지')) 
+console.log(fruitBasket.includes('패션')) // 
 
+
+
+// 객체 타입(함수, 배열, 객체) 은 indexOf() 로 판별 가능하지 않음
+// 객체의 경우 메모리의 저장 주소가 다르기 때문에 indexOf 를 사용할 수 없다.
+const 멋사14기_수강생 = [
+  {이름: '이성은'},
+  {이름: '김민지'},
+  {이름: '신남일'},
+]
+
+// console.log(멋사14기_수강생.indexOf({이름: '이성은'})) // 1
+console.log(멋사14기_수강생.findIndex(/* callback */(수강생) => console.log(수강생.이름 === '이성은')))// 1
+
+console.log(멋사14기_수강생.findIndex(/* callback */(수강생) => {
+  const 반환값 = 수강생.이름 === '이성은' // true of false
+  return 반환값
+}))// 1
+
+멋사14기_수강생.findIndex((수강생) => 수강생.이름 === '이성은') // 0
 
 
