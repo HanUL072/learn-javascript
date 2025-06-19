@@ -93,87 +93,89 @@
 // ------------------------------------------------
 // 흐름 제어 (continue, break)
 
-// ;(() => {
+;(() => {
 
-//   let drawCount = 20
-//   let i = 0
+  let drawCount = 20
+  let i = 0
 
-//   const draw = (n) => {
-//     console.log('도화지에 그림을 그린 횟수 =' + n)
-//   }
+  const draw = (n) => {
+    console.log('도화지에 그림을 그린 횟수 =' + n)
+  }
 
-//   // continue
-//   // while(i++ < drawCount /* 0 ~ 10 -> continue -> 16~ 19*/) {
-//   //   // i += 1
-//   //   // ++i
-//   //   // i++
+  // continue
+  // while(i++ < drawCount /* 0 ~ 10 -> continue -> 16~ 19*/) {
+  //   // i += 1
+  //   // ++i
+  //   // i++
 
-//   //   // i = 10
-//   //   if (i > 10 && i <= 15) {
-//   //     continue
-//   //   }
+  //   // i = 10
+  //   if (i > 10 && i <= 15) {
+  //     continue
+  //   }
 
-//   //   // continue 를 만나면 해당 코드 무시
-//   //   draw(i)
-//   // }
-
-
-//   // break
-//   while(i++ < drawCount /* 0 < 20 */) {
-//     // i = 1, 2, 3, 4, 5
-
-//     if (i === 5) {
-//       break // 반복문 종료
-//     }
-
-//     draw(i)
-//   }
-
-//   console.log('last i=', i)
+  //   // continue 를 만나면 해당 코드 무시
+  //   draw(i)
+  // }
 
 
-// })()
+  // break
+  while(i++ < drawCount /* 0 < 20 */) {
+    // i = 1, 2, 3, 4, 5
+
+    if (i === 5) {
+      break // 반복문 종료
+    }
+
+    draw(i)
+  }
+
+  console.log('last i=', i)
+
+
+})
 
 
 
-// ;(() => {
-//   // let userInput = Number.parseInt(prompt('1부터 10까지 숫자를 입력하세요.'), 10);
+;(() => {
+  // let userInput = Number.parseInt(prompt('1부터 10까지 숫자를 입력하세요.'), 10);
 
-//   // while (Number.isNaN(userInput) || userInput < 1 || userInput > 10) {
-//   //   console.error('입력 값이 1부터 10 사이의 숫자여야 합니다.');
-//   //   userInput = Number.parseInt(prompt('1부터 10까지 숫자를 입력하세요.'), 10);
-//   // }
+  // while (Number.isNaN(userInput) || userInput < 1 || userInput > 10) {
+  //   console.error('입력 값이 1부터 10 사이의 숫자여야 합니다.');
+  //   userInput = Number.parseInt(prompt('1부터 10까지 숫자를 입력하세요.'), 10);
+  // }
 
-//   // console.log('userInput =', userInput)
+  // console.log('userInput =', userInput)
 
 
-//   // 선 증가, 후 증가는 왜 쓰는 지, 어떨 때 쓰는지 궁금합니다! 사실 아직 잘 이해가 안돼서요..ㅠ
+  // 선 증가, 후 증가는 왜 쓰는 지, 어떨 때 쓰는지 궁금합니다! 사실 아직 잘 이해가 안돼서요..ㅠ
+  // 선 증가 = 즉시 실행 (현재 라인부터 값 변경) 
+  // 후 증가 = 현재 라인에선 증가,감소(x) , 다음 라인부터 값 변경
+
+  // let i = 0
+
+  // step 1.
+  // while(i < 10) {
+  //   console.log(i)
+  //   i = i + 1
+  // }
+
+  // step 2.
+  // while(i < 10) {
+  //   console.log(i)
+  //   // i = i + 1
+  //   // i += 1
+  //   i++
+  // }
+
+  // step 3.
+  // while(i++ < 10) {
+  //   console.log(i)
+  // }
   
-//   // let i = 0
+  // step 4.
+  // while(i++ < 10) console.log(i)
 
-//   // step 1.
-//   // while(i < 10) {
-//   //   console.log(i)
-//   //   i = i + 1
-//   // }
-
-//   // step 2.
-//   // while(i < 10) {
-//   //   console.log(i)
-//   //   // i = i + 1
-//   //   // i += 1
-//   //   i++
-//   // }
-
-//   // step 3.
-//   // while(i++ < 10) {
-//   //   console.log(i)
-//   // }
-  
-//   // step 4.
-//   // while(i++ < 10) console.log(i)
-
-// })
+})
 
 
 // ---------------------------------------------------------------
@@ -181,24 +183,24 @@
 // while vs. do ... while
 
 
-// ;(() => {
-//   let condition = false
+;(() => {
+  let condition = false
 
-//   // do ... whild 문
-//   // 코드가 조건과 상관없이 한번은 반드시 실행되면 좋겠다.
-//   // 조건이 거짓이어도 1번은 반드시 실행
+  // do ... whild 문
+  // 코드가 조건과 상관없이 한번은 반드시 실행되면 좋겠다.
+  // 조건이 거짓이어도 1번은 반드시 실행
   
-//   do {
-//     console.log('condition is true')
-//   } while(condition)
+  do {
+    console.log('condition is true')
+  } while(condition)
 
 
-//   // while 문
-//   while(condition) {
-//     // 조건이 거짓이면 1번도 실행 안함
-//     console.log('condition is true')
-//   }
-// })
+  // while 문
+  while(condition) {
+    // 조건이 거짓이면 1번도 실행 안함
+    console.log('condition is true')
+  }
+})
 
 // --------------------------------------------------------------------------Add commentMore actions
 // 사용자 입력 검증 (while)
@@ -230,3 +232,99 @@
 
 })
 // -----------------------------------------------------------------------
+// 하나의 파일 안에서 다른 코드와 충돌 없이 일종의 캡슐화(모듈) 처리
+// 즉시 실행되는 함수 표현식(IIFE) 패턴
+
+// 함수는 값
+// const lookMe = (function() {
+//   console.log('나를 보세요')
+// })
+
+// 함수값참조()
+// lookMe()
+
+// JS에서 (값)
+;(() => {
+  console.log('나를 보세요')
+}) 
+
+
+;(() => {
+  ;(function scope1() {
+    var 변수 = '지역 변수 1'
+    console.log(변수)
+  });
+  
+  (function scope2() {
+    var 변수 = '지역 변수 2'
+    console.log(변수)
+  });
+  
+  (function scope3() {
+    var 변수 = '지역 변수 3'
+    console.log(변수)
+  });
+  
+  (function scope4() {
+    var 변수 = '지역 변수 4'
+    console.log(변수)
+  })()
+})
+
+// -------------------------------------------------------------------------------------
+// for 문
+
+;(() => {
+  // while 문 vs. for 문
+
+  // while 문 예시
+  let i = 0
+
+  while(i < 10) {
+    console.log('while 문')
+    ++i
+  }
+  
+}) 
+
+// for 문 예시
+;(() => {
+  // for(변수선언값할당; 변수가유효한지비교; 변수변경)
+  for(let i = 0; i < 10; ++i) {
+    console.log('for 문')
+  }
+})
+
+;(() => {
+  let i = 0
+
+  for( ; i < 10;) {
+    console.log('for 문')
+    ++i
+  }
+}) 
+
+;(() => {
+  // let i = 0
+
+  // for(변수선언값할당; 변수가유효한지비교; 변수변경)
+  for(let i = 0; i < 10; ++i) {
+    console.log('for 문', i)
+    // ++i
+  }
+}) ()
+
+
+// -------------------------------------------------------------------------------
+// i = i + 1 vs. i ++
+;(() => {
+  let i = 0
+
+  i = i + 1
+
+  i++
+
+  ++i
+  
+  console.log(i)
+}) 
