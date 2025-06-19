@@ -73,18 +73,48 @@
 // userInput = Number.parseInt(userInput, 10)
 // console.log(userInput + 10, typeof userInput)
 
-let userInput = parseInt(prompt("1부터 10까지 숫자를 입력하세요.", 10))
+// let userInput = parseInt(prompt("1부터 10까지 숫자를 입력하세요.", 10))
 
-while (Number.isNaN(userInput) || userInput < 1 || userInput > 10){
-  // [2] if 문 없이 : 
-  // //console.error('입력 값이 1부터 10까지 숫자여야 합니다.'))
-   userInput = parseInt(prompt("1부터 10까지 숫자를 입력하세요.", 10))
+// while (Number.isNaN(userInput) || userInput < 1 || userInput > 10){
+//   // [2] if 문 없이 : 
+//   // //console.error('입력 값이 1부터 10까지 숫자여야 합니다.'))
+//    userInput = parseInt(prompt("1부터 10까지 숫자를 입력하세요.", 10))
   
-  // [1] if 문 사용 예시 
-   if (Number.isNaN(userInput) || userInput < 1 || userInput > 10) {
-      console.error('입력 값이 1부터 10까지 숫자여야 합니다.')
-   }
-}
+//   // [1] if 문 사용 예시 
+//    if (Number.isNaN(userInput) || userInput < 1 || userInput > 10) {
+//       console.error('입력 값이 1부터 10까지 숫자여야 합니다.')
+//    }
+// }
 
-console.log('사용자가 입력한 값은 ', + userInput + '입니다.' )
+// console.log('사용자가 입력한 값은 ', + userInput + '입니다.' )
 
+
+// ------------------------------------------------
+// 흐름 제어 (continue, break)
+
+;(() => {
+
+  let drawCount = 20
+  let i = 0
+
+  const draw = (n) => {
+    console.log('도화지에 그림을 그린 횟수 =' + n)
+  }
+
+  while(i++ <drawCount /* 0 ~ 10 -> continue -> 16~ 19*/) {
+    // i += 1
+    // ++i
+    // i++
+
+    // i = 10
+    if (i > 10 && i <= 15) {
+      continue
+    }
+
+    // continue 를 만나면 해당 코드 무시
+    draw(i)
+  }
+
+  console.log('last i=', i)
+
+})()
