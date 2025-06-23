@@ -102,3 +102,12 @@ paragraphs.forEach((p) => {
 
 })
 
+;(() => {
+
+  const paras = document.querySelectorAll('.life-tips p')
+  console.log(paras)
+
+  console.log(paras[0] === paras.item(0))
+  console.log(paras[1] === paras.item(1))
+  console.log(paras[2] === paras.item(2))
+}) 
