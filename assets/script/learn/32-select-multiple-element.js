@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 ;(() => {
 
   // <nav>의 모든 <a> 요소를 찾아보자
@@ -111,3 +113,42 @@ paragraphs.forEach((p) => {
   console.log(paras[1] === paras.item(1))
   console.log(paras[2] === paras.item(2))
 }) 
+
+// HTMLCollection vs. NodeList - 설명
+;(() => {
+  //  HTMLCollection (Live)
+  // const paras = document.getElementsByTagName('p')
+  // console.log(paras)
+
+  // const paraClasses = document.getElementsByClassName('para')
+  // console.log(paraClasses)
+
+  // // NodeList (Static)
+  // const paragraphs = document.querySelectorAll('p')
+  // console.log(paragraphs)
+}) 
+
+// HTMLCollection vs. NodeList - 예시
+;(() => {
+  console.group('DOM 업데이트 전')
+  // HTMLCollection (Live)
+  const paras = document.getElementsByTagName('p')
+  console.log('HTMLCollection(라이브 콜렉션: 살아있는 집합) =', paras.length)
+
+  const paraClasses = document.getElementsByClassName('para')
+  console.log('HTMLCollection(라이브 콜렉션: 살아있는 집합) =',paraClasses.length)
+
+  // NodeList
+  const paragraphs = document.querySelectorAll('p')
+  console.log('NodeList(스태틱 콜렉션: 고정된 집합)', paragraphs.length)
+  console.groupEnd()
+
+  // Update DOM
+  document.querySelector('.life-tips').innerHTML += '<p>씻지 않은 채소는 그대로 보관하시는 것이 좋습니다.</p>'
+
+  console.group('DOM 업데이트 후')
+  console.log('HTMLCollection(라이브 콜렉션: 살아있는 집합) =', paras.length)
+  console.log('HTMLCollection(라이브 콜렉션: 살아있는 집합) =',paraClasses.length)
+  console.log('NodeList(스태틱 콜렉션: 고정된 집합)', paragraphs.length)
+  console.groupEnd()
+})()
