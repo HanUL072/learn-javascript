@@ -56,6 +56,8 @@
         <!-- <script src="./assets/scripts/utils/events.js"></script> -->
   
         <script src="./assets/scripts/utils/css.js"></script>
+        <script src="./assets/scripts/utils/events.js"></script>
+        <script src="./assets/scripts/utils/query.js"></script>
     </head>
     <!-- <body style="background-color: maroon;"> -->
     <body>    
@@ -76,19 +78,32 @@
           <div class="character" data-type="good-guy">요다</div>
           <div class="character" data-type="villain">다스 베이더</div>
         </div>
+
+        <p 
+          id="notice"
+          class="announcement"
+          contenteditable
+          data-category="event"
+          data-user-id="27" 
+          data-role="manager" 
+          data-status="active"
+        >
+        모든 태그는 여러 개의 속성을 가질 수 있습니다!
+        </p>
+
+        <form>
+            <div>
+                <!-- HTML Attribute -->
+                <input type="checkbox" name="hobby" id="hobby"/>
+                <label for="hobby">취미</label>
+            </div>
+            <button type="submit">제출</button>
+        </form>
         
         
  
 
-        <!-- <script src="/assets/debug/example.js"></script> -->
-        <!-- <script src="./assets/scripts/learn/27-array.js"></script> -->
-        <!-- <script src="./assets/scripts/learn/28-array-methods.js"></script> -->
-        <!-- <script src="./assets/scripts/learn/29-practice-6.js"></script> -->
-        <!-- <script src="./assets/scripts/learn/30-loop.js"></script> -->
-        <!-- <script src="./assets/scripts/learn/31-forEach.js"></script> -->
-        <!-- <script src="./assets/scripts/learn/32-select-multiple-element.js"></script> -->
-        <!-- <script src="./assets/scripts/learn/33-element-style.js"></script> -->
-        <!-- <script src="./assets/scripts/learn/34-read-css-style.js"></script> -->
-        <script src="./assets/scripts/learn/35-using-utils.js"></script>
+        
+        <script src="./assets/scripts/learn/36-get-set-attribute.js"></script>
     </body>
 </html>
