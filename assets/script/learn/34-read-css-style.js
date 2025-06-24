@@ -46,4 +46,21 @@
   // h1.style을 사용해 h1 요소의 글자 크기를 132px로 설정
   heading1.style.setProperty('--font-size', willUpdateFontSizeValue + 'px')
 
+})
+
+
+;(() => {
+  const heading1 = document.querySelector('h1')
+  const heading1PseudoElementStyles = getComputedStyle(heading1, '::after')
+  console.log(heading1PseudoElementStyles.getPropertyValue('content'))
+  // console.log(heading1PseudoElementStyles.getPropertyValue.content) 예전방식 사용가능
+  // 단, 커스텀 프로퍼티는 가져올 수 없음
+  
+  console.log(heading1PseudoElementStyles.getPropertyValue('position'))
+  console.log(heading1PseudoElementStyles.getPropertyValue('right'))
+  console.log(heading1PseudoElementStyles.getPropertyValue('top'))
+  console.log(heading1PseudoElementStyles.getPropertyValue('display'))
+  console.log(heading1PseudoElementStyles.getPropertyValue('z-index'))
+  console.log(heading1PseudoElementStyles.getPropertyValue('width'))
+  console.log(heading1PseudoElementStyles.getPropertyValue('height'))
 })()
