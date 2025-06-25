@@ -1,7 +1,9 @@
-{
-  // -------------------------------------------------
-  // 📌 DOM 탐색(Traversing)
-  // -------------------------------------------------
+/* eslint-disable no-unused-vars*/
+
+// -------------------------------------------------
+// 📌 아래 방향으로 DOM 탐색(Traversing)
+// -------------------------------------------------
+;(() => {
   
   const starWars = document.getElementById('star-wars')
   // console.log(starWars)
@@ -32,4 +34,64 @@
   // lastChild
   // lastElementChild
   console.log('마지막 요소 노드 자식', starWars.lastElementChild)
-}
+})
+
+// ----------------------------------------------------------
+// 📌 위 방향으로 DOM 탐색(travering)console.log(das.parentElement.parentElement
+// ----------------------------------------------------------
+;(() => {
+   
+  const das = document.querySelector('#star-wars em > span')
+
+  // parentNode
+  // console.log(das.parentNode)
+
+  // parentElement
+  console.log(das.parentElement) // <em>
+
+  // 다스의 부모의 부모
+  console.log(das.parentElement.parentElement) // .character
+
+  // 다스의 부모의 부모의 부모
+  console.log(das.parentElement.parentElement.parentElement) // #star-wars
+
+  // 선택자와 일치하는 가장 가까운 부모 찾기 
+  console.log(das.closest('article')) // <article>
+  // 선택자와 일치하는 가장 가까운 부모 찾기 (단, 나도 포함)
+  console.log(das.closest('span.me')) // <span class="me">다스</span>Add comment
+
+
+
+}) ()
+
+// ------------------------------------------------------------------------
+// 📌 옆 방향으로 DOM 탐색(Traversing)
+// ------------------------------------------------------------------------
+;(() => {
+
+  const faqList = document.querySelector('.faq-list')
+  const firstElementChild = faqList.firstElementChild
+  const lastElementChild = faqList.lastElementChild
+  
+  // previousSibling (All Node)
+  // console.log(fisrtElementChild.previousSibling) // #text (Text Node)
+
+  // previousElementSibling (Element Node)
+  console.log(firstElementChild.previousElementSibling) // null
+  // 현재 요소의 이전 형제 (앞)
+  console.log(lastElementChild.previousElementSibling)
+  // 현재 요소의 이전 형제의 이전 형제 (앞의 앞)
+  console.log(lastElementChild.previousElementSibling.previousElementSibling.dataset.index)
+
+  // nextSibling (All Node)
+  // console.log(firstElementChild.nextSibling) // #text (Text Node)
+  // nextElementSibling (Element Node)
+  console.log(firstElementChild.nextElementSibling.dataset.index) // 1
+  console.log(firstElementChild.nextElementSibling.nextElementSibling.dataset.index) // 2
+
+  // parentElement + chlidren + index 조합
+  const firstLink = faqList.querySelector('a[href^="/faq/"]')
+  const parent = firstLink.closest('ul.faq-list')
+  console.log(parent.children.item(3).firstElementChild)
+  console.log(parent.children.item(3).lastElementChild)
+})
