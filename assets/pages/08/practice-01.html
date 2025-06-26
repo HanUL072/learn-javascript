@@ -56,7 +56,26 @@
         // 2. 사용자에 의해 선택된 뷰(view)가 무엇인 지, 콘솔 패널에 출력합니다.
         // 3. `aria-pressed` 속성을 사용해 눌려진 버튼 상태를 명시합니다.
 
-        
+        const viewToggle = document.querySelector('.view-toggle')
+        const buttons = viewToggle.querySelectorAll('button')
+
+        buttons.forEach((button) => {
+          button.addEventListener('click', (e) => {
+            const target = e.currentTarget
+
+            // 현재 활성 클래스 이름을 가진 버튼 찾기
+            const activatedButton = viewToggle.querySelector('.active')
+            activatedButton.classList.remove('active')
+            activatedButton.setAttribute('aria-pressed', 'false')
+            
+            // 클릭한 타겟(버튼)에 활성 클래스 설정
+            target.classList.add('active')
+            activatedButton.setAttribute('aria-pressed', 'true')
+
+            // 콘솔 패널에 사용자가 선택한 뷰 이름 출력
+            console.log('선택된 뷰(View) = ' + target.textContent.trim())
+          })
+        })
       }
     </script>
   </body>
