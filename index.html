@@ -126,20 +126,27 @@
         
  
          
-        <button type="button" data-name="change-bg-color">배경색 변경</button>
+        <button hidden type="button" data-name="change-bg-color">배경색 변경</button>
         
         <hr />
 
-        <a href="http://naver.com" target="_blank" rel="noopener noreferrer">네이버</a>
+        <a hiden href="http://naver.com" target="_blank" rel="noopener noreferrer">네이버</a>
         
-        <label for="agreement">
+        <label hidden for="agreement">
           <input type="checkbox" name="agreement" id="agreement"/>
           동의합니다.
         </label>
 
-        <form method="GET" action="http://google.com">
+        <form hidden data-learn="form" method="GET" action="https://google.com">
           <!-- 검색 필드 -->
-          <button type="submit">검색</button>
+          <div>
+            <label for="search-term">검색어</label>
+            <input type="search" name="search-term" id="search-term" value="레인보우" placeholder="검색어를 입력" />
+          </div>
+          <div style="margin-block-start: 8px;">
+            <button type="submit">검색</button>
+            <button type="reset">초기화</button>
+          </div>
         </form>
 
 
