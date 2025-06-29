@@ -1,8 +1,8 @@
-// ------------------------------------------------------------
+// --------------------------------------------------------------------------
 // 📌 이벤트 위임 (Event Delegation)
-// ----------------------------------------------------------
+// --------------------------------------------------------------------------
 
-// 요소 집합 루프(반복, 순환)하여 이벤트 리스너를 각각 추가Add commentMore actions
+// 요소 집합 루프(반복, 순환)하여 이벤트 리스너를 각각 추가
 // 이벤트 리스너 5개 생성
 ;(() => {
   const linkList = document.querySelector('.link-list')
@@ -37,18 +37,16 @@
 
 })
 
-
-// 이벤트 위임 + 이벤트 대상 확인에 따른 조건 처리Add commentMore actions
+// 이벤트 위임 + 이벤트 대상 확인에 따른 조건 처리
 // 단 1개의 이벤트 리스너 생성
-;(() => {
-
+;() => {
   const linkList = document.querySelector('.link-list')
-  
+
   linkList.addEventListener('click', (e) => {
     if (!e.defaultPrevented) e.preventDefault()
     const target = e.target
 
-    if(target.localName === 'a') {
+    if (target.localName === 'a') {
       // console.log('<a> 요소를 클릭했습니다.')
       console.log(target.getAttribute('href'))
     }
@@ -56,21 +54,18 @@
     // console.log(target.nodeName)  // 'A', 'LI', 'UL'
     // console.log(target.nodeName.toLowerCase())  // 'a', 'li', 'ul'
     // console.log(target.localName) // 'a', 'li', 'ul'
-    
+
     // if(target.localName === 'li') {
     //   console.log('<li> 요소를 클릭했습니다.')
     // }
-    
+
     // if(target.localName === 'ul') {
     //   console.log('<ul> 요소를 클릭했습니다.')
     // }
-
   })
+}
 
-})
-
-
-// 이벤트 대상(event target)이 일치하는 지 검사Add commentMore actions
+// 이벤트 대상(event target)이 일치하는 지 검사
 // element.matches(selector)
 ;(() => {
   const linkList = document.querySelector('.link-list')
@@ -101,9 +96,30 @@
     
     if (target.matches('a[href="/news"]')) {
       console.log(target.getAttribute('href'))
+    } 
+    // else {
+    //   console.log(target.localName)
+    // }
+    
+  })
+})
+
+// 중첩된 요소 처림 2
+// <a>, <button> 요소 내부에 <svg>를 포함하는 경우
+// 2. element.closest(selector) 메서드 활용
+;(() => {
+  const linkList = document.querySelector('.link-list')
+
+  linkList.addEventListener('click', (e) => {
+    if (!e.defaultPrevented) e.preventDefault()
+    
+    const target = e.target.closest('a[href]')
+    
+    if (target) {
+      console.log(target.getAttribute('href'))
     } else {
       console.log(target.localName)
     }
     
   })
-})()
+})
