@@ -67,4 +67,43 @@
 
   })
 
+})
+
+
+// 이벤트 대상(event target)이 일치하는 지 검사Add commentMore actions
+// element.matches(selector)
+;(() => {
+  const linkList = document.querySelector('.link-list')
+
+  linkList.addEventListener('click', (e) => {
+    if (!e.defaultPrevented) e.preventDefault()
+    
+    const target = e.target
+
+    if (target.matches('a[href="/community"]')) {
+      console.log(target.getAttribute('href'))
+    }
+    
+  })
+})
+
+// 중첩된 요소 처리
+// <a>, <button> 요소 내부에 <svg>를 포함하는 경우
+// 1. CSS를 사용해 <a> 또는 <button> 내부의 <svg>, <span> 요소에
+//    pointer-events: none 설정을 하여 마우스 포인트 이벤트에 영향을 받지 않도록 설정
+;(() => {
+  const linkList = document.querySelector('.link-list')
+
+  linkList.addEventListener('click', (e) => {
+    if (!e.defaultPrevented) e.preventDefault()
+    
+    const target = e.target
+    
+    if (target.matches('a[href="/news"]')) {
+      console.log(target.getAttribute('href'))
+    } else {
+      console.log(target.localName)
+    }
+    
+  })
 })()
