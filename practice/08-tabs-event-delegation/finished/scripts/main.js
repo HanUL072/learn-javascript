@@ -47,19 +47,24 @@
         tabContents.at(selectedIndex).classList.remove(SELECTED_CLASSNAME)
       }
 
-      let activeIndex
+      // let activeIndex
 
       for (let i = 0, l = tabs.length; i < l; ++i) {
         if (tabs.at(i) === tabButton) {
-          activeIndex = i
+          // activeIndex = i
+          selectedIndex = i
           break
         }
       }
 
-      tabs.at(activeIndex).classList.add(SELECTED_CLASSNAME)
-      tabContents.at(activeIndex).classList.add(SELECTED_CLASSNAME)
+      // tabs.at(activeIndex).classList.add(SELECTED_CLASSNAME)
+      // tabContents.at(activeIndex).classList.add(SELECTED_CLASSNAME)
       
-      selectedIndex = activeIndex
+      // selectedIndex = activeIndex
+    // }
+
+    tabButton.classList.add(SELECTED_CLASSNAME)
+      tabContents.at(selectedIndex).classList.add(SELECTED_CLASSNAME)
     }
 
   })

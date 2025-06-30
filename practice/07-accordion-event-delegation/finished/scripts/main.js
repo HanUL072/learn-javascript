@@ -12,7 +12,6 @@
 })
 
 // 이벤트 위임 방식으로 코드 개선
-// 이벤트 위임 방식으로 코드 개선
 ;(() => {
   const accordionContainer = document.querySelector('.accordion__container')
 
