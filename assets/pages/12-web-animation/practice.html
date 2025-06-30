@@ -85,41 +85,62 @@
     }
 
   </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const button = document.querySelector('button')
-      const main = document.querySelector('main')
+ <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const button = document.querySelector('button')
+    const main = document.querySelector('main')
 
-      main.addEventListener('click', (e) => {
-        const mainElement = e.currentTarget
+    main.addEventListener('click', (e) => {
+      const mainElement = e.currentTarget
 
-        if (e.target.matches('[data-type="transition"]')) {
-          mainElement.classList.toggle('is-transition')
+      if (e.target.matches('[data-type="transition"]')) {
+        mainElement.classList.toggle('is-transition')
+      }
+      
+      if (e.target.matches('[data-type="animation"]')) {
+        let animationClassName = 'is-animation'
+        const button = e.target
+        if (mainElement.classList.contains(animationClassName)) {
+          mainElement.classList.remove(animationClassName)
+          button.textContent = 'Animation Play'
+        } else {
+          mainElement.classList.add(animationClassName)
+          button.textContent = 'Animation Paused'
         }
-        
-        if (e.target.matches('[data-type="animation"]')) {
-          let animationClassName = 'is-animation'
-          const button = e.target
-          if (mainElement.classList.contains(animationClassName)) {
-            mainElement.classList.remove(animationClassName)
-            button.textContent = 'Animation Play'
-          } else {
-            mainElement.classList.add(animationClassName)
-            button.textContent = 'Animation Paused'
-          }
-        }
-      })
+      }
     })
-  </script>
+
+    main.addEventListener('transitionrun', (e) => {
+      console.log('transition "run"', e.propertyName, e.target)
+      e.target.style.setProperty('scale', '1 0.85')
+      e.target.style.setProperty('filter', 'blur(2px)')
+    })
+
+    main.addEventListener('transitionstart', (e) => {
+      console.log('transition "start"', e.propertyName, e.target)
+    })
+
+    main.addEventListener('transitionend', (e) => {
+      console.log('transition "end"', e.propertyName, e.target)
+      e.target.style.setProperty('scale', '1')
+      e.target.style.setProperty('filter', 'blur(0)')
+    })
+
+    main.addEventListener('transitioncancel', (e) => {
+      console.log('transition "cancel"', e.propertyName, e.target)
+    })
+
+
+  })
+</script>
 </head>
 <body>
 
-  
   <main lang="en">
-
+    
     <button type="button" data-type="transition">Transition Toggle</button>
     <button type="button" data-type="animation">Animation Play</button>
-
+  
     <section>
       <h2>Linear</h2>
       <div class="ball"></div>
