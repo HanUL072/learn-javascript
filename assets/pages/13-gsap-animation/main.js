@@ -308,16 +308,18 @@
       console.log('start')
     },
     onUpdate: () => {
-      console.log('update')
+      console.log('updating...')
     },
     onRepeat: () => {
       console.log('repaat')
     },
     onComplete: () => {
-      console.log('complete')
+      console.log('completed')
     },
     onReverseComplete: () => {
       console.log('reverse completed')
+      document.querySelector('[data-control="timeScale-2"]').click()
+      console.log('2배속 재생 시작!')
     },
   })
     .from('.blue', { y: 200 }) // 0s
@@ -360,10 +362,41 @@
 
   })
 
-}
-  setTimeout(animate, 500) 
+   }
+   
+   function tweenAnimate() {
+     const greenTween = gsap.to('.green', {
+       scale: 1.3,
+       rotation: 270,
+       skewX: 30,
+       duration: 1.5,
+       ease: 'back.inOut(2)',
+       repeat: 1,
+       yoyo: true,
+       repeatDelay: 1,
+       onStart: () => { console.log('start tween') },
+       onRepeat: () => {
+         console.log('2배속')
+         greenTween.timeScale(2).play()
+       },
+       onComplete: () => { 
+         console.log('complete tween') 
+       },
+     })
+   
+     greenTween.pause()
+   
+     document.querySelector('.purple').addEventListener('click', () => {
+       greenTween.timeScale(0.4).play()
+     })
+   }
 
-  // const tween = gsap.from('.blue', { y: 200})
-  //  tween.play()
+
+   setTimeout(() => {
+    animate()
+    tweenAnimate()
+   }, 200)
+
+  
 
 })()
