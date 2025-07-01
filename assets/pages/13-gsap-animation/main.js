@@ -104,32 +104,33 @@
     //   })
 
     // JavaScript 객체
-    // const o = {
-    //   num: 0,
-    //   color: 'yellow'
-    // }
+    const o = {
+      num: 0,
+      color: 'yellow'
+    }
 
-    // const output = document.querySelector('output')
+    const output = document.querySelector('output')
     
-    // const renderCount = () => {
-    //   output.value = Math.round(o.num)
-    // }
+    const renderCount = () => {
+      output.value = Math.round(o.num)
+      output.style.setProperty('color', o.color)
+    }
 
-    // gsap.to(o, {
-    //   num: 100,
-    //   color: 'orange',
-    //   duration: 1,
-    //   repeat: 1,
-    //   yoyo: true,
-    //   onUpdate: renderCount,
-    //   onComplete: () => {
-    //     // console.log('finished gsap animation')
-    //     gsap.set(output, { opacity: 0 })
-    //   }
-    // })
+     gsap.to(o, {
+      num: 100,
+      color: 'cyan',
+      duration: 1,
+      // repeat: 1,
+      // yoyo: true,
+      onUpdate: renderCount,
+      onComplete: () => {
+        // console.log('finished gsap animation')
+        // gsap.set(output, { opacity: 0 })
+      }
+    })
     
     // delay
-   // repeatDelay
+    // repeatDelay
       // gsap.to('.box:first-of-type', {
       //   rotation: 360,
       //   duration: 1,
