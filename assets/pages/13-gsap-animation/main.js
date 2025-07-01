@@ -1,4 +1,4 @@
-
+// GSAP - Getting Started
 ;(() => {
 
   // Web Animations API
@@ -191,7 +191,7 @@
 
 })
 
-
+// GSAP - Stagger
 ;(() => {
 
   function animate() {
@@ -255,12 +255,27 @@
     //   })
     // }
 
-
-  
-
-
   }
 
   setTimeout(animate, 800)
+})
 
+// GSAP -TimeLine
+;(() => {
+   
+    function animate() {
+      gsap.to('.box', { 
+        rotation: -45, 
+        duration: 1,
+        stagger: (index) => {
+          if (index === 0) {
+            return 2
+          } else {
+            return 0.1
+        }
+      } 
+      
+    })
+  }
+  setTimeout(animate, 500)
 })()
