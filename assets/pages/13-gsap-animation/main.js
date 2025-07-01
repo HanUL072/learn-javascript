@@ -200,8 +200,62 @@
     // gsap.from('.yellow', { y: 100, opacity: 0, duration: 1, delay: 1 })
     // gsap.from('.green', { y: 100, opacity: 0, duration: 1, delay: 2 })
 
+    gsap.from('.box', { 
+      y: 100, 
+      opacity: 0,
+      stagger: 0.1, 
+      ease: 'power1.out'
+    } )
 
-    gsap.from('.box', { y: 100, stagger: 0.1, ease: 'elastic.out'} )
+    const boxes = document.querySelectorAll('.box')
+
+    // 이벤트 위임(Event Delegation)
+    document.querySelector('main')
+    .addEventListener('click', (e) => {
+      if (e.target.matches('.box')) {
+        gsap.to('.box', { 
+          y: -100, 
+          opacity: 0, 
+          scale: 1.2,
+          repeat: -1,
+          
+          // stagger: 0.1,
+
+            stagger : {
+              each: 0.3,
+              repeat: 5,
+              yoyo: true,
+            },
+
+            // stagger: (index, target, /* list */) => {
+            //   // return index * 0.2 // 0, 0.2, 0.4
+            //   // return index * 0.4 // 0, 0.4, 0.8
+
+            //   if (target.matches('.green')) {
+            //     return 1.5
+            //   } else {
+            //     return index * 0.2
+            //   }
+            // },
+            ease: 'power4.out',
+
+          
+          })
+        }
+      })
+
+
+    // 루프문 사용
+    // for (const box of boxes) {
+    //   box.addEventListener('click', () => {
+    //     gsap.to('.box', { y: 100, opacity: 0, stagger: 0.1, ease: 'power4.out'})
+    //   })
+    // }
+
+
+  
+
+
   }
 
   setTimeout(animate, 800)
