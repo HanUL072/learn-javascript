@@ -1,4 +1,5 @@
-{
+
+;(() => {
 
   // Web Animations API
   function playground() {
@@ -119,9 +120,17 @@
      gsap.to(o, {
       num: 100,
       color: 'cyan',
-      duration: 1,
+      duration: 3,
       // repeat: 1,
       // yoyo: true,
+      // ease: 'power4.in',
+      // ease: 'power4.Out',
+      // ease: 'power4.inOut',
+      // ease: 'back.out',
+      // ease: 'back.out(9)',
+      // ease: 'bounce',
+      // ease: 'steps(10)',
+      ease: 'elastic',
       onUpdate: renderCount,
       onComplete: () => {
         // console.log('finished gsap animation')
@@ -163,10 +172,38 @@
       //   // unlike DOM elements, canvas needs to be redrawn and cleared on every tick
       //   onUpdate: draw
       // });
+
+      // Easing
+      // none
+      // power(1,2,3,4).in
+      // power(1,2,3,4).out
+      // power(1,2,3,4).inOut
+      // back
+      // back(1,2,3,4).in()
+      // back(1,2,3,4).out()
+      // back(1,2,3,4).inOut()
   }
 
   setTimeout(() => {
     playground()
     playgroundGSAP()
   }, 500)
-}
+
+})
+
+
+;(() => {
+
+  function animate() {
+    
+    // gsap.from('.blue', { y: 100, opacity: 0, duration: 1 })
+    // gsap.from('.yellow', { y: 100, opacity: 0, duration: 1, delay: 1 })
+    // gsap.from('.green', { y: 100, opacity: 0, duration: 1, delay: 2 })
+
+
+    gsap.from('.box', { y: 100, stagger: 0.1, ease: 'elastic.out'} )
+  }
+
+  setTimeout(animate, 800)
+
+})()
