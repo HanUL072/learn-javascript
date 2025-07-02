@@ -41,6 +41,45 @@
   setTimeout(animate, 500) 
 })
 
+// CSS 리니어 그라디언트
+// custom properties + linear-gradient() + transition
+;(() => {
+
+  // CSS 리니어 그레디언트에 트랜지션을 설정하는 방법 
+// custom properties + linear-gradient() + transition
+
+
+  [
+    { name: '--banner-link-begin', value: '#ff905c' },
+    { name: '--banner-link-end', value: '#ed027c' },
+  ].forEach((propertyDefinition) => {
+    CSS.registerProperty({
+      name: propertyDefinition.name,
+      inherits: false,
+      syntax: '<color>',
+      initialValue: propertyDefinition.value,
+    })
+  })
+
+
+
+  // CSS.registerPropert({
+  //   name: '--banner-link-begin',
+  //   inherits: false,
+  //   syntax: '<color>',
+  //   initialValue: '#ff905c'
+  // })
+
+  // CSS.registerPropert({
+  //   name: '--banner-link-end',
+  //   inherits: false,
+  //   syntax: '<color>',
+  //   initialValue: '#ed027c',
+  // })
+})()
+
+
+
 // 배너 애니메이션을 GSAP 애니메이션 라이브러리로 구현해보세요.Add commentMore actions
 ;(() => {
   /* global gsap, GSDevTools */
