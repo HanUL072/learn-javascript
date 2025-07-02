@@ -1,5 +1,6 @@
 html {
   font-size: 120%;
+  interpolate-size: allow-keywords; 
 }
 
 body {
