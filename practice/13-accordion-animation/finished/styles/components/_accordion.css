@@ -1,7 +1,8 @@
 .accordion__container {
   max-inline-size: 30rem;
   /* @starting-style 적용 -> block-size: auto 값 대신 계산해줌*/
-  interpolate-size: allow-keywords; 
+  /* 사파리, 파이어 폭스에선 지원하지 않음 */
+  /* interpolate-size: allow-keywords;  */
 }
 
 .accordion {
@@ -66,33 +67,35 @@
 
 
 .accordion__content {
-    overflow: hidden;
-    display: grid;
-    block-size: 0;
+  overflow: hidden;
+  block-size: 0;
+  padding-inline: 2rem;
+  transition: block-size 0.3s var(--ease-out-expo);
 
+  .accordion__inner {
+    display: grid;
     grid-template-columns: 7.5rem 1fr;
     grid-column-gap: 1.5rem;
     align-items: center;
-    padding-inline: 2rem;
-
-    transition: block-size 0.3s var(--ease-out-expo);
+    padding-block-end: 1.5rem;
+  }
 
     /* 규칙: 트랜지션, 애니메이션의 시작 첫 프레임에 설정할 스타일을 지정 */
     /* - 스타일 바로 적용 안됌 왜냐, .is-open 의 block-size: auto 때문, 변환을 못 해줌 */
     @starting-style{
-      block-size: 0;
+      block-size : 0;
       padding-block-end: 0;
     }
     
     .is-open & {
       /* 0 -> auto : [과거] 변경 사이즈 계산 못함 / [최신] 브라우저 보간(사이를 채우다, interpolation) 계산 가능*/
       block-size: auto; 
-      padding-block-end: 1.5rem;
+      
     }
 
     p {
       font-size: 1rem;
-      line-height: 1.5;
+      line-block-size: 1.5;
     }
   }
 }
