@@ -60,7 +60,7 @@
   const result = hasOwnClassName(body)
   console.log(result)
 
-})()
+})
 
 
 ;(() => {
@@ -112,4 +112,100 @@
   // })
 
   
+})
+
+// 실습 1
+;(() => {
+  // 클릭 시, 유효한 입력만 처리
+  // 사용자가 입력한 값이 없으면 "빠른 반환"을 사용해 경고 메시지를 띄우고,
+  // 입력이 있을 때만 결과를 출력합니다.
+
+  const practice1 = document.querySelector('.practice1')
+  const userNameInput = document.getElementById('username')
+  const output = practice1.querySelector('output')
+  
+
+  // 기본
+  practice1.addEventListener('click', (e) => {
+    const submitButton = e.target.closest('[type="submit"]')
+
+    if (submitButton) {
+      e.preventDefault()
+
+      const userNameInputVaue = userNameInput.value.trim()
+
+      if (!userNameInputVaue) {
+        alert('이름을 입력해야 합니다.')
+        userNameInput.select()
+      } else {
+        output.value = userNameInputVaue
+        userNameInput.value = ''
+      }
+    }
+
+  })
+
+
+  // 빠른 반환
+  practice1.addEventListener('click', (e) => {
+    const submitButton = e.target.closest('[type="submit"]')
+
+    if (!submitButton) return // 빠른 반환 (함수 종료)
+      e.preventDefault()
+
+      const userNameInputVaue = userNameInput.value.trim()
+
+      if (!userNameInputVaue) {
+        alert('이름을 입력해야 합니다.')
+        userNameInput.select()
+      } else {
+        output.value = userNameInputVaue
+        userNameInput.value = ''
+      }
+    }
+
+  )
+
+})
+
+
+// 실습 2 
+;(() => {
+  
+  // 점수 별, 등급 출력
+  // 사용자가 입력한 점수에 따른 등급을 화면에 출력합니다.
+  // getScore 함수를 작성하고, 화면에서 작동되도록 구현합니다.
+
+  const practice2 = document.querySelector('.practice2')
+  const input = practice2.querySelector('input')
+  const button = practice2.querySelector('button')
+  const output = practice2.querySelector('output')
+
+  button.addEventListener('click', () => {
+    const score = Number(input.value)
+    const grade = getGrade(score)
+    output.textContent = grade
+  })
+  
+  // 빠른 반환
+  function getGrade(score) {
+  	if (score >= 90) return 'A'
+  	if (score >= 75) return 'B'
+  	if (score >= 60) return 'C'
+    return 'F'
+    
+    // let grade
+    // if (score >= 90) {
+    //   garde = 'A'
+    // } else if (score >= 75) {
+    //   garde = 'B'
+    // } else if (score >= 60) {
+    //   garde = 'C'
+    // } else {
+    //   grade = 'F'
+    // }
+    // return grade
+}
+
+
 })()
