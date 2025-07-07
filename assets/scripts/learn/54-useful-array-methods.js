@@ -180,4 +180,42 @@
     return mapResult
   }
 
-})()
+})
+
+// 배열 객체의 메서드 체이닝
+;(() => {
+  
+  const numbers = [1, 2, 3]
+
+  const doubleNumbers = numbers.filter(n => n > 1).map(n => n ** 2)
+  console.log(doubleNumbers)
+
+  const numbers2 = ['one', 'two', 'three']
+
+  const doubleNumbers2 = numbers2
+                        .filter(n => n !== 'one')
+                        .map(n => n.repeat(2))
+
+                        .map(n => n.toUpperCase())
+  console.log(doubleNumbers2)
+
+  // const filterNumbers = numbers.filter(n => n > 1)
+  // console.log(filterNumbers)
+
+  // const squartNumbers = filterNumbers.map(n => n ** 2)
+  // console.log(squartNumbers)
+})
+
+// GSAP 메서드 체이닝
+;(() => {
+
+  /* global gsap*/
+
+  const tl = gsap.timeline({
+    defaults: { opacity: 0, y: -100, scale: 0}
+  })
+  
+  tl
+     .to('h1', { y:0, scale: 1})
+     .to('p', { y:0, scale: 1}, '+=0.4')
+})
