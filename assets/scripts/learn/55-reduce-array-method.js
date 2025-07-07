@@ -69,4 +69,105 @@
     return numbers.reduce((total, number) => total + number, 0)
   }
 
+})
+
+// 배열 -> 누산된 객체
+;(() => {
+  const fruits = [
+	'바나나', 
+	'애플', 
+	'오렌지', 
+	'애플', 
+	'바나나', 
+	'워터 멜론', 
+	'오렌지',
+	'워터 멜론',
+	'바나나',
+	'참외',
+]
+
+  const fruitsCount = fruits.reduce((o, fruits) => {
+    // o[fruit] ? (o[fruit] += 1) : (o[fruit] = 1)
+
+    if (!o[fruits]) {
+      o[fruits] = 1
+    } else {
+      o[fruits] += 1
+    }
+  
+    return o
+  }, {})
+  
+  console.log(fruitsCount)
+})
+
+// 중첩된 배열 -> 평탄화된 배열
+;(() => {
+  const nestedArray = [
+  [1, 2, 3, 4, 5],
+  [6, 7, 8, 9, 10],
+]
+
+// const flattenedArray = nestedArray.reduce((result, itemArray) => {
+// 	result.push(...itemArray)
+// 	return result
+// }, [])
+
+// const flattenedArray = nestedArray.reduce(
+// 	(result, itemArray) => [...result, ...itemArray], 
+// 	[],
+// )
+  
+  // console.log(flattenedArray)
+
+  const flattedArray = nestedArray.flat()
+  console.log(flattedArray)
+ 
+})
+
+// 배열 -> 템플릿 스트링
+;(() => {
+
+  const list = [
+    { content: '하나'},
+    { content: '둘'},
+    { content: '셋'},
+    { content: '넷'},
+    { content: '다섯'}
+  ]
+
+  // 배열의 메서드를 사용해 아래와 같은 템플릿 문자열 생성
+  // '<li>하나</li>'<li>둘</li>'<li>셋</li>'<li>넷</li>'<li>다섯</li>'
+
+ // [질문] for 문 vs. reduce() 메서드 내용 한번 더 설명해주실 수 있을까요?
+
+  // for문 구현
+  {
+    let templateString = ''
+
+    for(let i = 0, l=list.length; i<l; i++) {
+      const { content } = list[i]
+      templateString += `<li>${content}</li>`
+    }
+
+    console.log(templateString)
+  }
+
+  // map() 구현
+  // .map().join() -> string 
+  {
+    const templateString = list.map(({ content }) => `<li>${content}</li>`).join('')
+    console.log(templateString)
+  }
+
+  // reduce() 구현
+  {
+    const templateString = list.reduce((template, { content }) => 
+      `${template}<li>${content}</li>`, 
+      ''
+    )
+    console.log(templateString)
+  }
+
+  
 })()
