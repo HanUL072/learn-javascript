@@ -216,6 +216,7 @@
   })
   
   tl
-     .to('h1', { y:0, scale: 1})
-     .to('p', { y:0, scale: 1}, '+=0.4')
+     .from('h1', { }) // Timeline { to, from, set, call, ... }
+     .from('p', { }, '-=0.2')
+     .to('p', { y: -36, opacity: 1, scale: 1 })
 })
