@@ -109,4 +109,73 @@
 
   console.log(map(['one', 'two'], (item, index) => `${index}-${item}`))
 
+})
+
+// 대출 가능 도서 필터링 함수
+// 도서 목록에서 대출 가능한 책만 걸러내는 함수를 작성합니다.
+// - 함수의 목적을 이해하기 쉽게 적절한 이름 작성
+// - 함수가 단 하나의 기능만 가지도록 구성
+// - JSDoc 주석 추가 (목적, 매개변수, 반환값)
+;(() => {
+  
+  const books = [
+    { id: 'book-isbn-3', title: '자바스크립트 입문', isBorrow: true },
+    { id: 'book-isbn-7', title: '리액트 마스터', isBorrow: false },
+    { id: 'book-isbn-12', title: '프론트엔드 개론', isBorrow: true },
+  ]
+
+  
+  /**
+   * 도서 목록에서 대출 가능한 도서만 걸러내는 기능
+   *
+   * @param {{id: string; title: string; isBorrow: boolean}[]} books 도서 목록(배열)
+   * @returns {{id: string; title: string; isBorrow: boolean}[]} 대출 가능한 도서 목록(배열) 
+   */
+  function filterBorrowBooks(books) {
+    return books.filter(({ isBorrow }) => isBorrow)
+  }
+
+  const bollowedBooks = filterBorrowBooks(books)
+  console.log(bollowedBooks)
+
+})
+
+
+// 이메일 주소 목록 추출 함수
+// 사용자 목록에서 이메일 주소만 포함하는 목록을 추출하는 함수를 작성하세요.
+// - 함수의 목적을 이해하기 쉽게 적절한 이름 작성
+// - 함수가 단 하나의 기능만 가지도록 구성 (단일 책임 원칙)
+// - JSDoc 주석 추가 (목적, 매개변수, 반환값)
+;(() => {
+
+  const students = [
+    { id: 1, name: '김지훈', email: 'jihun.kim@example.com', isPresent: true },
+    { id: 2, name: '박아름', email: 'areum.park@example.com', isPresent: false },
+    { id: 3, name: '이민수', email: 'minsu.lee@example.com', isPresent: true },
+    { id: 4, name: '최수빈', email: 'subin.choi@example.com', isPresent: true },
+    { id: 5, name: '정하늘', email: 'haneul.jung@example.com', isPresent: false },
+    { id: 6, name: '윤다현', email: 'dahyun.yoon@example.com', isPresent: true },
+    { id: 7, name: '한지민', email: 'jimin.han@example.com', isPresent: false },
+    { id: 8, name: '오세영', email: 'seyoung.oh@example.com', isPresent: true },
+    { id: 9, name: '서윤호', email: 'yunho.seo@example.com', isPresent: true },
+    { id: 10, name: '배예진', email: 'yejin.bae@example.com', isPresent: false },
+  ]
+
+  // 어떤 기능 구현?
+  // 이름만으로 기능을 유추할 수 있게 하려면 어떤 이름이 적절할지?
+  // 함수는 어떤 매개변수를 전달 받을 지, 어떤 타입일지? 해당 매개변수를 설명한다면?
+  // 함수의 반환값은 어떤 타입이며, 설명한다면?
+
+  /**
+   * 사용자 목록에서 이메일 주소만 포함하는 새로운 이메일 목록을 생성 기능
+   * 
+   * @param {{ email: string; id: number; name: string; isPresent: boolean }[]} userList 사용자 목록 (email 속성 필수 포함)
+   * @return {{ email: string[] }} 이메일 목록
+   */
+  function extractEamilAdress(userList) {
+    return userList.map(({ email }) => email)
+  }
+
+  console.log(extractEamilAdress(students))
+
 })()
