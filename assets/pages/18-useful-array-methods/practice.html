@@ -170,6 +170,54 @@
           // - 메서드 체이닝 활용
           // - 사용자 그룹 출력 시, JSON.stringify(filteredUsers, null, 2) 구문 활용
 
+          const practice = document.getElementById('practice5')
+          const prefixInput = practice.querySelector('#practice5-prefix')
+          const nationalitySelect = practice.querySelector('#practice5-nationality')
+          const output = practice.querySelector('pre')
+          
+          printData(users)
+
+
+          // 이벤트 위임
+          practice.addEventListener('input', (e) => {
+            
+            const filteredUsers = users
+              .map((user) => {
+                const prefix = prefixInput.value.trim()
+                return { 
+                  ...user, id: `${prefix}${prefix ? '-' : ''}${user.id}` 
+                }
+              })
+              .filter((user) => {
+                const filterKey = nationalitySelect.value
+                if (!filterKey) return users
+                return user.nationality === filterKey
+              })
+
+              // 방법 (원리를 알기 위해 남긴것)
+            // ;(() => {
+            //   // 프리픽스 값 읽기
+            // const prefix = prefixInput.value.trim()
+            // // 모든 사용자 객체의 ID 값을 재설정한 새 배열 생성
+            // users.map((user) => {
+            //   // 사용자 복제 (전개 구문) - 2015년 이후 개편
+            //   // for...in 문 - 이전에 많이 사용
+            //   const newUser = {...user}
+            //   // id 속성 값에 접두사 추가
+            //   newUser.id = `${prefix}-${newUser.id}`
+            //   // 생성된 새 사용자 반환
+            //   return newUser
+            // })
+            // })
+            // })
+          
+            printData(filteredUsers)
+          })
+          
+          function printData(data) {
+            output.textContent = JSON.stringify(data, null, 2) 
+          }
+
           
 
         })()
