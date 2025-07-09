@@ -74,7 +74,7 @@
     <script>
       // 실습 1. 사용자 추가
       // 사용자가 이름 입력 후, "추가" 버튼을 누르면 
-      // 목록 요소에 새 사용자가 추가되도록 구현합니다.
+      // 목록 요소에 새 사용자 구현합니다가 추가되도록.
       // .append() 또는 .appendChild() 메서드 사용
       ; (() => {
         // 사용자 참고
@@ -161,7 +161,40 @@
           }
         ]
 
-      })()
+        // DocumentFragment 객체 활용
+        // 문서 객체 생성
+        const _dom = document.createDocumentFragment()
+        const container = document.createElement('div')
+        _dom.append(container)
+
+        // insetAdjacentHTML 사용할 수 있는가 여부확인
+        // console.log('insertAdjacentHTML' in virtualDOM)
+
+        
+        // users 데이터 순환
+        for (const { name } of users) {
+          container.insertAdjacentHTML('beforeend', `<li>${name}</li>`)
+        }
+        
+        const practice = document.getElementById('practice1')
+        const userList = practice.querySelector('.user-list')
+        const form = practice.querySelector('form')
+        
+        // 렌더링
+        userList.append(...container.children)
+        
+        form.addEventListener('submit', (e) => {
+          e.preventDefault()
+          const [nameInput] = form.elements
+          const username = nameInput.value.trim()
+          if (!username) return
+          const userItem = document.createElement('li')
+          userItem.textContent = username
+          userList.appendChild(userItem)
+          nameInput.value = ''
+          nameInput.focus()
+        })
+      })
     </script>
 
     <hr />
@@ -231,6 +264,36 @@
           }
         ]
 
+        const practice = document.getElementById('practice2')
+        const button = practice.querySelector('button')
+        const menu = practice.querySelector('.menu')
+        
+        const menuItemsTemplate = todaysMenu.reduce((acc, { name, price, ingredients }) => {
+          return acc + /* html */`
+            <li>
+              <h3>${name}</h3>
+              <p>
+                <span class="price">${price.toLocaleString()}원</span>
+                <span class="divider" role="none">|</span>
+                <span class="ingredients">(${ingredients.join(', ')})</span>
+              </p>
+            </li>
+          `
+        }, '')
+        
+        button.addEventListener('click', () => {
+          menu.innerHTML = menuItemsTemplate
+        })
+
+        menu.innerHTML = `<li>
+          <h3>{메뉴이름}</h3>
+          <p> 
+            <span class="price">{메뉴가격}원</span>
+            <span class="ingredients">({메뉴재료})</span>
+          </p>  
+        </li>`
+
+
       })()
     </script>
 
@@ -240,6 +303,7 @@
       <h3>상품 리뷰</h3>
       <button type="button">리뷰 불러오기</button>
       <ul class="comments">
+        <!-- 새 리뷰글 추가 -->
         <li>배송도 빠르고 포장도 꼼꼼했어요. 맛도 기대 이상입니다!</li>
         <li>양이 많고 간도 딱 좋네요. 가족끼리 먹기 좋아요.</li>
         <li>전자레인지에 돌려 먹으니 금방 완성돼서 간편했어요.</li>
@@ -283,6 +347,20 @@
           }
         ]
 
+        // 우리가 내보내고 싶은 것은 newReviews 안의 content 이기 때문에 먼저 content 부터 걸러냄
+        const reviews = newReviews.map(({ content }) => {
+        const element = document.createElement('li')
+          element.textContent = content
+          return element
+        })
+        
+        const fragment = document.createDocumentFragment()
+        fragment.append(...reviews)
+        
+        document.querySelector('#practice3 button')
+          .addEventListener('click', (e) => {
+            e.currentTarget.nextElementSibling.prepend(...fragment.children)
+          })
       })()
     </script>
 
