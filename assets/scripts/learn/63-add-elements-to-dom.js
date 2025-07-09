@@ -115,4 +115,91 @@
   }
 
   
+})
+
+// 여러 요소를 DOM에 추가할 때
+// 렌더링 횟수가 증가하는 코드 예시
+;(() => {
+  
+  // <li>면이 익으면 불을 끄고 그릇에 옮깁니다.</li>
+  // <li>물을 냄비에 붓고 끓입니다 (약 500ml).</li>
+  // <li>물이 끓으면 스프를 먼저 넣습니다.</li>
+  // <li>취향에 따라 파, 계란, 치즈 등을 추가합니다.</li>
+  // <li>호호 불며 맛있게 먹습니다.</li>
+
+  const recipeList = [
+    '면이 익으면 불을 끄고 그릇에 옮깁니다.',
+    '물을 냄비에 붓고 끓입니다 (약 500ml)',
+    '물이 끓으면 스프를 먼저 넣습니다.',
+    '취향에 따라 파, 계란, 치즈 등을 추가합니다.',
+    '호호 불며 맛있게 먹습니다.',
+  ]
+
+  const listElement = document.querySelector('.ramen-cooking-recipe')
+
+  for (const recipe of recipeList) {
+    const item = document.createElement('li')
+    item.textContent = recipe
+    listElement.appendChild(item)
+  }
+
+})
+
+// 여러 요소를 DOM에 추가할 때
+// innerHTML 사례
+;(() => {
+  
+  const recipeList = [
+    '면이 익으면 불을 끄고 그릇에 옮깁니다.',
+    '물을 냄비에 붓고 끓입니다 (약 500ml)',
+    '물이 끓으면 스프를 먼저 넣습니다.',
+    '취향에 따라 파, 계란, 치즈 등을 추가합니다.',
+    '호호 불며 맛있게 먹습니다.',
+  ]
+
+  // HTML 템플릿 문자열 생성
+  const recipeHTMLTemplate = recipeList.map((content) => {
+    return `<li>${content}</li>`
+  }).join('')
+
+  // console.log(recipeHTMLTemplate)
+
+  const listElement = document.querySelector('.ramen-cooking-recipe')
+
+  // innerHTML
+  // before or after
+  listElement.innerHTML = recipeHTMLTemplate + listElement.innerHTML
+
+  // insertAdjacentHTML()
+  // before or after or prepend or append
+  // listElement.insertAdjacentHTML('afterbegin', recipeHTMLTemplate)
+
+})
+
+// 여러 요소를 DOM에 추가할 때
+// Document Fragment 활용 사례
+;(() => {
+
+  const listElement = document.querySelector('.ramen-cooking-recipe')
+
+  // 문서 조각 객체 생성
+  // 실제 DOM과 유사 (사용자가 보는 문서가 아닌, 다른 공간)
+  const fragment = document.createDocumentFragment()
+  console.dir(fragment)
+
+  const recipeList = [
+    '면이 익으면 불을 끄고 그릇에 옮깁니다.',
+    '물을 냄비에 붓고 끓입니다 (약 500ml)',
+    '물이 끓으면 스프를 먼저 넣습니다.',
+    '취향에 따라 파, 계란, 치즈 등을 추가합니다.',
+    '호호 불며 맛있게 먹습니다.',
+  ]
+
+  recipeList.forEach((recipe) => {
+    const recipeItem = document.createElement('li')
+    recipeItem.textContent = recipe
+    fragment.append(recipeItem)
+  })
+
+  listElement.append(...fragment.children)
 })()
