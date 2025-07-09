@@ -140,7 +140,18 @@
           <h2>박상현</h2>
           <p>프론트엔드 개발자</p>
         `
+        const practice = document.getElementById('practice2')
+        const card = practice.querySelector('.profile-card')
+        const button = card.previousElementSibling
         
+        button.addEventListener('click', () => {
+          const cardTemplate = `
+            <h2>박상현</h2>
+            <p>프론트엔드 개발자</p>
+          `
+          card.innerHTML = cardTemplate
+          // button.disabled = true
+        }, { once: true })
 
       })()
     </script>
