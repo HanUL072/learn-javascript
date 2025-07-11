@@ -1,10 +1,24 @@
 ;(() => {
 
-  /* global DOMPurify*/
+  /* global DOMPurify */
 
   // 문서에서 폼 요소 찾기
   const todoListForm = document.querySelector('.todolist')
   const todoList = todoListForm.querySelector('.todolist__tasks')
+
+  // 할 일 제거 버튼 click 이벤트 리스너 추가
+  const removeButtons = todoList.querySelectorAll('button')
+
+  // 찾은 제거 버튼(들) 순환
+  removeButtons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      const taskElement = e.currentTarget.closest('.task')
+      // 제거 방법 1
+      // taskElement.parentElement.removeChild(taskElement)
+      // 제거 방법2
+      taskElement.remove()
+    })
+  })
   
   // 폼 요소에 submit 이벤트 리스너 추가
   todoListForm.addEventListener('submit', (e) => {
@@ -68,6 +82,10 @@
         </svg>
       </button>
     `)
+
+    // 생성된 <li> 안에서 제거 버튼을 찾아서
+    // 버튼에 할 일 요소를 삭제하는 기능을 추가 
+
 
     // 생성된 새 할 일 요소 반환
     return taskElement
