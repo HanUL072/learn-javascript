@@ -77,25 +77,66 @@
   //   countDown()
   // }
 
-})()
+})
 
 // 쓰로틀링 (Throtting)
 ;(() => {
 
-})
+    // throttle 함수 작성
+    function throttle(callback, delay = 400 /* 0.4s */) {
+      // 조건 처리를 위한 지역 변수
+      let timeout = null 
+    
+      // 함수 내부에서 다른 함수 반환 
+      // 이벤트 리스너로 추가되는 함수
+      return function(...args) {
+        // console.log(args) // [arg1, arg2, ..., argN]
+        if (!timeout) {
+          timeout = setTimeout(() => {
+            // throttle 함수 실행 과정에서 전달된 콜백 실행
+            callback(...args) // callback(arg1, arg2, ..., argN)
+            // timeout 초기화
+            timeout = null
+          }, delay)  
+        }
+      }
+    
+    }
+    
+    // 스크롤 (scroll) 이벤트 -------------------------------------------
+    // 쓰로틀 사용 전
+    // window - 브라우저 환경에서의 전역 객체
+    // global - Node.js 환경에서의 전역 객체
+    // globalThis - 환경 통합적인 전역 객체
+    
+    // 스크롤 할 때마다 콜백 실행
+    let noThrottleCount = 0
+    function handleScrollNoThrottle() {
+      console.log(`%cnoThrottleCount =${noThrottleCount++}`, 'color: red')
+    }
+    globalThis.addEventListener('scroll', handleScrollNoThrottle)
+    
+    // 쓰로틀 조정으로 0.5초 간격으로 콜백 실행
+    let throttleCount = 0
+    const handleScrollThrottle = throttle(() => {
+      console.log(`%cthrottleCount =${throttleCount++}`, 'color: blue')
+    }, 500)
+    globalThis.addEventListener('scroll', handleScrollThrottle)
 
-// 
-;(() => {
-
-})
-
-
-// 
-;(() => {
-
-})
-
-// 
-;(() => {
+    // 리사이트(resize) --------------------------------------------------
+    globalThis.addEventListener('resize', () => {
+       console.log(`%c${globalThis.innerWidth}`, 'color: hotpink')
+    })
   
+    globalThis.addEventListener('resize', throttle(() => {
+      console.log('throttle', globalThis.innerWidth)
+    }))
+
+})()
+
+// 디바운싱 (Deboundcing)
+;(() => {
+
 })
+
+
