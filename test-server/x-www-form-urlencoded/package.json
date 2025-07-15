@@ -1,9 +1,10 @@
 {
-  "name": "x-www-form-urlencoded-test-server",
+  "name": "multipart-formdata-test-server",
   "scripts": {
     "start": "node server.mjs"
   },
-  "devDependencies": {
-    "express": "^5.1.0"
+  "dependencies": {
+    "express": "^5.1.0",
+    "multer": "^2.0.1"
   }
 }
