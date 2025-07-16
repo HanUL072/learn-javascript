@@ -13,7 +13,6 @@ const STORAGE_KEY = '@imgbb'
 ;(() => {
   
   
-
   const uploadForm = document.querySelector('[data-id="upload-form"]')
   const fileInput = uploadForm.querySelector('input[type="file"')
   
