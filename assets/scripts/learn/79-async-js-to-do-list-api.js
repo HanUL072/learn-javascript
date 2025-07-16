@@ -69,7 +69,7 @@ function authHeader() {
     return axios.post(`${TODOLIST_ENDPOINT}/login`, { email, password })
   }
 
-})
+})()
 
 // 생성된 사용자 삭제
 ;(() => {
@@ -92,4 +92,37 @@ function authHeader() {
 
 })()
 
+// 할 일 생성
+;(() => {
 
+  // axios.post(url[, data[, config]])
+  axios.post(
+    // url
+    `${TODOLIST_ENDPOINT}/todos`,
+    // data
+    { todo: '맛있게 밥먹기'},
+    // config
+    { headers: { ...baseHeader(), ...authHeader() }}
+  )
+
+    .then(({ data }) => console.log(data))
+    .catch(console.error)
+
+})
+
+// 할 일 수정 (부분)
+;(() => {
+
+  // 사용자가 체크박스를 눌렀을 때 서버에 부분 수정 요청
+  const todoId = '6877454f7dd0e019d7b8a816'
+  axios.patch(`${TODOLIST_ENDPOINT}/todos/${todoId}`,
+
+  {},
+
+  { headers: {...baseHeader(), ...authHeader() }}
+  )
+
+   .then(({ data }) => console.log(data))
+   .catch(console.error)
+
+})
