@@ -48,7 +48,7 @@ const API_ENDPOINT = 'https://jsonip.com'
 })
 
 
-// Proxy Server (https://corsproxy.io/demo)
+// Proxy Server (https://corsproxy.io/demo) //프록시 서버추가
 // - 무료로 사용할 경우, 로컬 테스트에서만 가능
 // - 실제 서비스에서 사용할 경우, 유료(월 16,655원)
 ;(() => {
